@@ -9,20 +9,54 @@
 		}
 
 
-		public function product(){
+		public function product(){				//load trang xem danh sach sp, tu do co the them sp
 			$this->load->view('admin');
 		}
 
-		public function addProduct() {
-			
-			$this->load->view('addProduct'); 
+
+		public function addProduct() {		//load trang them san pham, co goi den category lay id va name
+			$data['category'] = $this->load->model("Category")->getNameID();
+			$this->load->view('addProduct',$data); 
 		}
 
-		public function addCategory(){
+
+		public function insertProduct() {			//khi submit them sp
+
+			$bookModel = $this->load->model('BookModel');
+
+			$product_name = $_POST['product_name'];
+			$category_id = $_POST['category_id'];
+			
+			$product_desc = $_POST['product_desc'];
+			$product_price = $_POST['product_price'];
+			
+			$data = array(
+				'category_id' => $category_id,
+				'product_name' => $product_name,
+				'product_desc' => $product_desc,
+				'product_price' => $product_price
+			);
+
+			$target_dir = "images/";
+			$imageName = time() . '-' . $_FILES["profileImage"]["name"];
+			$product_image = $target_dir . basename($imageName);
+			if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $product_image)){
+				echo "hinh anh thanh cong";
+				$data['product_image'] = $product_image;
+			}
+			else {
+				echo "loi hinh anh";
+				$data['product_image'] = "";			
+			}
+			$bookModel->insert($data);
+		}
+
+
+		public function addCategory(){							//load trang them danh muc sp
 			$this->load->view('AddCategory'); 
 		}
-
-		public function insertCategory(){
+		
+		public function insertCategory(){						//sau khi sub mit them danh muc
 			$category_name = $_POST['category_name'];
 			$category_desc = $_POST['category_desc'];
 			$data = array(
@@ -31,7 +65,7 @@
 			);
 
 			$categorymodel = $this->load->model("Category");
-			$res=$categorymodel->findByName($category_name);
+			$res=$categorymodel->findByName($category_name);		//tim xem co category nay hay chua
 			if ($res){
 				echo "Tên sản phẩm đã tồn tại";
 			}
@@ -41,57 +75,7 @@
 			}
 		}
 
-		public function insertProduct() {
-			// $bookModel = $this->load->model('BookModel');
-			// $categorymodel = $this->load->model('product');
-			// $table = 'book';
-			// $title = $_POST['id'];
-			// $desc = $_POST['name'];
-
-			// $data = array(
-			// 	'title_category_product' => $title,
-			// 	'desc_category_product' => $desc
-			// );
-
-			// $result = $categorymodel->insertcategory($table, $data);
-			
-			// if($result == 1) {
-			// 	$message['msg'] = "Thêm dữ liệu thành công";
-			// } else {
-			// 	$message['msg'] = "Thêm dữ liệu thất bại";
-			// }
-			
-			// $this->load->view('addcategory', $message);
-			// echo $_POST['CustomField'];
-			// echo $_FILES["profileImage"]["tmp_name"];
-
-			$target_dir = "images/";
-			$profileImageName = time() . '-' . $_FILES["profileImage"]["name"];
-			$target_file = $target_dir . basename($profileImageName);
-			if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $target_file)){
-				echo "ok";
-				$data = array(
-                	'img' => $target_file
-				);
-				// $result = $bookModel->insertBook('testaddbook', $data);
-			}
-			else echo "ko ok";
-			// echo "ok";
-
-			// $MY_FILE = $_FILES["profileImage"]["tmp_name"];
- 
-			// // To open the file and store its contents in $file_contents
-			// $file = fopen($MY_FILE, 'r');
-			// $other = fopen("images/test.jpg","w");
-
-			// $file_contents = fread($file, filesize($MY_FILE));
-
-			// fwrite($other,$file_contents);
-			// fclose($file);
-			// fclose($other);
-			// $file_contents = addslashes($file_contents);
-			// echo '<img src="data:image/jpeg;base64,'.base64_encode( $file_contents).'"/>';
-		}
+		
 	}
 
 

@@ -6,9 +6,9 @@
             parent::__construct();
         }
 
-        public function getName(){
-            $sql = "select category_name from $this->table";
-            return $this->db->select($sql);
+        public function getNameID(){
+            $sql = "select category_id,category_name from $this->table";
+            return $this->db->select($sql);     //list[3]['category_id]
         }
         public function findByName($name){
             $sql = "select * from $this->table where category_name='$name'";

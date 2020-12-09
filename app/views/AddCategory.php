@@ -5,7 +5,8 @@
         <?php include_once "single/admin/adminSidebar.php"?>
         <div id="page">
             <!-- <form id="category_product" name="addproduct" style="display: flex; flex-direction: column;" enctype="multipart/form-data" onsubmit="return false;"> -->
-            <form id="category_product" 
+            <form id="category_product"
+            class="adminForm" 
             onsubmit="return false;" 
             name="addproduct" style="display: flex; flex-direction: column;" 
             enctype="multipart/form-data" method="POST">

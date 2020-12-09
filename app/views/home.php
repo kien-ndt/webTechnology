@@ -15,6 +15,7 @@
         } 
     </style>
     <script src="<?php echo BASE_URL?>public/js/page/login.js"></script>
+    <meta charset="utf-8"/>
 </head>
 <body>
     <?php include_once "single/page/login_register.php"?>

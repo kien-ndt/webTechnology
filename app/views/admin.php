@@ -14,7 +14,7 @@
         <div id="page">
             <div class="admintopbar">
                 <span>Danh sách sản phẩm quản lý</span>
-                <a href=<?php echo BASE_URL.ROLE."/addProduct"?>>Thêm sản phẩm</a>
+                <a href=<?php echo BASE_URL."admin/addProduct"?>>Thêm sản phẩm</a>
             </div>
             <div class="filterBar">
                 <div>

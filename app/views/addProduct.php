@@ -4,38 +4,46 @@
     <div id="container">
         <?php include_once "single/admin/adminSidebar.php"?>
         <div id="page">
-            <form id="addproduct" name="addproduct" style="display: flex; flex-direction: column;" enctype="multipart/form-data" onsubmit="return false;">
+            <form class ="adminForm" id="addproduct" name="addproduct" enctype="multipart/form-data" onsubmit="return false;">
                 <label>Tên sách: </label>
-                <input type="text" value="harray dũng cảm" name="name">
-                <label>Ảnh: </label>
-                <input type="text" value="harray dũng cảm" name="img">
-                <label>Tác giả: </label>
-                <input type="text" maxlength="25" value="harray dũng cảm" name="author">
-                <label>Giá bán </label>
-                <input type="number" name="price">
-                <label>Lĩnh vực: </label>
-                <input type="text" value="harray dũng cảm" name="category">
+                <input type="text" name="product_name">
+                <label>Thể loại: </label>
+                <!-- <input type="text" value="harray dũng cảm" name="category_id"> -->
+                <select id="theloai" name="category_id">
+                    <?php
+                        foreach($category as $value){
+                            echo "<option value=\"".$value['category_id']."\">".$value['category_name']."</option>";
+                        }
+                    
+                    ?>
+                </select>
+                <!-- <label>Giá: </label>
+                <input type="text" maxlength="25" value="harray dũng cảm" name="author"> -->
+                <label>Giá bán: </label>
+                <input type="number" name="product_price">
+                <label>Mô tả: </label>
+                <input type="text" name="product_desc">
                 
                 <label>Ảnh bìa sách:</label>
                 <div class="inputImg">                    
-                    <img src="img/addImg.png" onClick="triggerClick()" id="profileDisplay">
+                    <img src="../public/img/addImg.png" onClick="triggerClick()" id="imgDisplay">
                     <input type="file" accept=".jpg,.png,.jpeg" name="profileImage" onChange="displayImage(this)" id="profileImage" style="display: none;">
                 </div>
 
                 <button type="button" onclick="submitAddProduct()";>Thêm</button>
-                <span id=resultaddproduct></span>
             </form>
             
+            <span id="message"></span>
     <script>
         function submitAddProduct(){
             let form = document.getElementById("addproduct");
             form1 = document.forms.namedItem("addproduct");
             dt = new FormData(form1);
             var xmlhttp = new XMLHttpRequest();
-            let res = document.getElementById("resultaddproduct");
+            let message = document.getElementById("message");
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    res.innerHTML += this.responseText;
+                    message.innerHTML += this.responseText;
                     // form.reset();
                 }
             }
@@ -56,7 +64,7 @@
             if (e.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e){
-                    document.getElementById('profileDisplay').setAttribute('src', e.target.result);
+                    document.getElementById('imgDisplay').setAttribute('src', e.target.result);
                 }
                 reader.readAsDataURL(e.files[0]);
                 }

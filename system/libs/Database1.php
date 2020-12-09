@@ -27,12 +27,13 @@
 						$val = $val.$value.",";
 					}
 					else
-              			$val = $val."'".$value."'".",";
+              			$val = $val."N'".$value."'".",";
 				}
 				$column = rtrim($column,",");
 				$val = rtrim($val,",");
                 $SQLcmd = "insert into $table($column)
-                           values($val)";
+						   values($val)";
+				echo "</br>$SQLcmd";
 				mysqli_select_db($this->conn, $this->dbname);
 				// print "this query is $SQLcmd </br>";
 				if (mysqli_query($this->conn, $SQLcmd)){

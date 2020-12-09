@@ -41,32 +41,3 @@ ul.list-item .productname{
     overflow: hidden;
     font-family: sans-serif;
 }
-ul.list-item .navbutton{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-
-ul .navbutton button{
-    border-radius: 12px;
-    padding: 5px;
-}
-
-ul .navbutton button:hover{
-    background-color: #0FF5F5;
-    cursor: pointer;
-    transition: 0.4s;
-}
-ul .navbutton button.info{
-    flex-basis: 20%;
-    font-family: sans-serif;
-}
-ul .navbutton button.cost{
-    flex-basis: 40%;
-    font-family: sans-serif;
-}
-ul .navbutton button.add{
-    flex-basis: 20%;
-    font-family: sans-serif;
-}
