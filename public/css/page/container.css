@@ -12,6 +12,7 @@ ul.list-item{
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 0px;
+    list-style-type: none;
 }
 
 ul.list-item .item{
@@ -45,4 +46,9 @@ ul.list-item .productname{
     font-size: large;
     overflow: hidden;
     font-family: sans-serif;
+}
+ul.list-item .productprice{
+    font-size: larger;
+    color: orangered;
+    font-family: Arial, Helvetica, sans-serif;
 }
