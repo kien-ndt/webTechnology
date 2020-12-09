@@ -25,6 +25,11 @@ ul.list-item .item{
     justify-content: space-between;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
+}
+
+ul.list-item .item:hover{
+    border: 3px solid red;
 }
 
 ul.list-item .item img{

@@ -13,8 +13,11 @@
 
 		public function homepage($page) {
 			echo $page;
-			$BookModel = $this->load->model('BookModel');
-			$data['book'] = $BookModel->getGeneralBookSkip($page,12);
+			$bookModel = $this->load->model('BookModel');
+			$data['book'] = $bookModel->getGeneralBookSkip($page,12);
+
+			$data['category'] = $this->load->model("Category")->getNameID();
+			
 			$this->load->view('home',$data); 
 		}
 

@@ -26,6 +26,5 @@
         <?php include_once "single/page/sidebar.php" ?>
         <?php include_once "single/page/containeritem.php" ?>
     </div>
-    
 </body>
 </html>

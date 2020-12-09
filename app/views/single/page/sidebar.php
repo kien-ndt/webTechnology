@@ -1,8 +1,8 @@
         <div class="sidebar">
-            <ul>
+            <ul style="overflow-y: auto;">
                 <li><a href="#">Tất cả</a></li>
-                <li><a href="#">Chuột</a></li>
-                <li><a href="#">Bàn phím</a></li>
-                <li><a href="#">Tai nghe</a></li>
+                <?php foreach($category as $value){
+                    echo "<li><a href=\"#\">".$value['category_name']."</a></li>";
+                }?>
             </ul>
         </div>

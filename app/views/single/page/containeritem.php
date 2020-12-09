@@ -2,18 +2,14 @@
 <div id="showitem">
     <ul class="list-item">
       <?php
-        foreach($book as)
-
-      
+        foreach($book as $value){
+          echo "<li class=\"item\">";
+          echo "<img src=\"".$value['product_image']."\">";
+          echo "<div class=\"productname\">".$value['product_name']."</div>";
+          echo "<span class=\"productprice\">".$value['product_price']." vnd</span>";
+          echo "</li>";
+        }
       ?>
-      <li class="item">
-          <img src="images/logo.jpg">
-          <div class="productname">Tên sản phẩm ghi ở đây, tối đa 2 dòng vvvvvvvvvvvvvvvvv ksakskas</div>
-          <span class="product-price">                    
-            a
-          </span>     
-      </li>
-   
     </ul>
     <div>
       <a href="<?php echo BASE_URL?>index/homepage/1">1</a>

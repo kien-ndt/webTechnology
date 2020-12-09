@@ -23,9 +23,9 @@
                                ");      
                         else {
                             if ($_SESSION['role']=='admin'){
-                                print("<button><a href='".BASE_URL."admin/product'>Admin page</a></button>");                            
+                                print("<button><a href='".BASE_URL."admin/product'>Admin page</a></button>");                           
                             }
-                            print("<button>Đăng xuất</button>");
+                            print("<button><a href='".BASE_URL."customer/logout'>Đăng xuất</a></button>");
                         }               
                         ?>                
                     </div>
