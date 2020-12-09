@@ -1,0 +1,25 @@
+#page{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 0px 20px;
+    background-color: white;
+    flex: 1;
+    padding: 20px;
+    height: 92vh;
+    overflow: auto;
+}
+.admintopbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+.filterBar{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 20px 0px 20px 0px;
+}
+.filterBar input{
+    padding: 5px 10px 5px 10px;
+}

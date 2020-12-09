@@ -1,0 +1,72 @@
+#containerhome {    
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+ul.list-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0px;
+}
+
+ul.list-item .item{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid #0AA8A8;
+    width: 230px;
+    height: 310px;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+ul.list-item .item img{
+    margin-top: 0px;
+    height: 65%;
+    width: 100%;
+}
+ul.list-item .productname{
+    display: -webkit-box;
+    width: 90%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: large;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+ul.list-item .navbutton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul .navbutton button{
+    border-radius: 12px;
+    padding: 5px;
+}
+
+ul .navbutton button:hover{
+    background-color: #0FF5F5;
+    cursor: pointer;
+    transition: 0.4s;
+}
+ul .navbutton button.info{
+    flex-basis: 20%;
+    font-family: sans-serif;
+}
+ul .navbutton button.cost{
+    flex-basis: 40%;
+    font-family: sans-serif;
+}
+ul .navbutton button.add{
+    flex-basis: 20%;
+    font-family: sans-serif;
+}
