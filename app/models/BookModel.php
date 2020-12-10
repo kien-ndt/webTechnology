@@ -20,6 +20,16 @@
 			return $this->db->select($sql);  
 		}
 
+		public function getGeneralBookWithNameSkip($step, $num, $string){
+			$offset = ((int) $step - 1) * (int)$num;
+			$sql = "select * from $this->table, category_product 
+					where $this->table.category_id = category_product.category_id
+					and $this->table.product_name like '%$string%'
+					ORDER BY product_id DESC limit $num offset $offset;";
+		
+			return $this->db->select($sql);
+		}
+
 		public function getBookByCategorySkip($category,$step,$num){
 			$offset = ((int) $step - 1) * (int)$num;
 			$sql = "select * from $this->table, category_product 
