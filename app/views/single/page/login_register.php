@@ -5,39 +5,39 @@
             <div class="lrchoice" onclick="choice(2);">Tạo tài khoản</div>
         </div>
         <button class="closebutton" onclick="closelogin();">x</button>
-        <form class="lrform lform" action="#">
+        <form class="lrform lform" action="<?php echo BASE_URL ?>guest/signIn" method="POST">
             <div>
-                <label>Email/SĐT:</label>
-                <input type="text" placeholder="Nhập email hoặc số điện thoại">
+                <label>Email:</label>
+                <input type="text" name="userEmail" placeholder="Nhập email hoặc số điện thoại">
             </div>
             <div>
                 <label>Mật khẩu:</label>
-                <input type="password" placeholder="Mật khẩu từ 6 đến...kí tự">
+                <input type="password" name="userPassword" placeholder="Mật khẩu từ 6 đến...kí tự">
             </div>
             <div>
                 <button onclick="closelogin();">Đăng nhập</button>
             </div>
         </form>
-        <form id="registrationForm" class="lrform rform" action="#">
+        <form id="registrationForm" class="lrform rform" action="<?php echo BASE_URL ?>guest/signUp" method="POST">
             <div>
                 <label>Họ tên:</label>
                 <input type="text" name="name" placeholder="Nhập họ và tên">
             </div>
             <div>
-                <label>SĐT:</label>
-                <input type="text" name="phone" placeholder="Nhập số điện thoại">
-            </div>
-            <div>
                 <label>Email:</label>
                 <input type="text" name="email" placeholder="Nhập email">
             </div>
-            <div>
+            <!-- <div>
                 <label>Tên đăng nhập:</label>
                 <input type="text" name="username" placeholder="Nhập tên đăng nhập">
-            </div>
+            </div> -->
             <div>
                 <label>Mật khẩu:</label>
                 <input type="password" name="pass" placeholder="Nhập mật khẩu từ 6 đến... kí tự">
+            </div>
+            <div>
+                <label>SĐT:</label>
+                <input type="text" name="phone" placeholder="Nhập số điện thoại">
             </div>
             <div>
                 <label>Giới tính:</label>
