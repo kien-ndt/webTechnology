@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html len="vi">
 <head>
-    <link rel="stylesheet" href="<?php echo BASE_URL?>public/css/page/headerbar.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL?>public/css/stylesidebar.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL?>public/css/page/container.css">
-    <link rel="stylesheet" href="<?php echo BASE_URL?>public/css/page/loginform.css">
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/page/headerbar.css">
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/stylesidebar.css">
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/page/container.css">
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/page/loginform.css">
     <style>
         body{
             background: url(img/background2.png);
@@ -14,7 +14,7 @@
             background-position: center;
         } 
     </style>
-    <script src="<?php echo BASE_URL?>public/js/page/login.js"></script>
+    <script src="<?php echo PUBLIC_PATH?>js/page/login.js"></script>
     <meta charset="utf-8"/>
 </head>
 <body>
@@ -30,7 +30,7 @@
                 foreach($book as $value){
                     echo "<li class=\"blockitem\">";
                     echo "<a href=\"#\" class=\"item\" style=\"text-decoration: none;\">";
-                    echo "<img src=\"".$value['product_image']."\">";
+                    echo "<img src=\"".BASE_URL.$value['product_image']."\">";
                     echo "<div class=\"productname\">".$value['product_name']."</div>";
                     echo "<span class=\"productprice\">".$value['product_price']." vnd</span>";
                     echo "</a>";

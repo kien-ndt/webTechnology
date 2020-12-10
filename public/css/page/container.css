@@ -10,11 +10,13 @@ ul.list-item{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 0px;
     list-style-type: none;
 }
-
+ul.list-item .blockitem{
+    margin-left: 15px;
+}
 ul.list-item .item{
     display: flex;
     flex-direction: column;

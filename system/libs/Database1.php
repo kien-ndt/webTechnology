@@ -12,7 +12,8 @@
 			$this->user= $user;
 			$this->pass = $pass;
             $this->dbname = $dbname; 
-            $this->conn = mysqli_connect($this->server, $this->user, $this->pass, $this->dbname);  
+			$this->conn = mysqli_connect($this->server, $this->user, $this->pass, $this->dbname);
+			mysqli_set_charset($this->conn,"utf8");  
 		}
         public function insert($table, $data) {
             if (!($this->conn)) {
@@ -44,7 +45,7 @@
             }
 		}
 
-		public function select($sql){
+		public function select($sql){				//tra ve ban ghi theo hang (hang1: thuoctinh1, thuoctinh2; hang2: thuoctinh1,...)
 			if (!($this->conn)) {
                 die ("Cannot connect to".$this->server." using ".$this->user);
             } else {

@@ -10,7 +10,10 @@
 
 
 		public function product(){				//load trang xem danh sach sp, tu do co the them sp
-			$this->load->view('admin');
+			
+			$data['book'] = $this->load->model('BookModel')->getGeneralBookSkip(1,9999);
+			
+			$this->load->view('admin',$data);
 		}
 
 
@@ -46,7 +49,7 @@
 			}
 			else {
 				echo "loi hinh anh";
-				$data['product_image'] = "";			
+				$data['product_image'] = $target_dir."noImg.png";			
 			}
 			$bookModel->insert($data);
 		}

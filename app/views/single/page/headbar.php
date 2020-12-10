@@ -1,5 +1,5 @@
     <div id="header-bar">
-        <img src="<?php echo BASE_URL?>public/img/logo.jpg" class="logo" alt="logo">
+        <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo">
         <form method="POST" action="product.html">
             <input type="text">
             <select>
@@ -11,7 +11,7 @@
         <div class="account-cart-area">
             <div class="account-area">
                 <div class="account-icon">
-                    <img src="<?php echo BASE_URL?>public/img/accounticon.png">
+                    <img src="<?php echo PUBLIC_PATH?>img/accounticon.png">
                     <span>Tài khoản</span>
                 </div>
                 <div class="account-nav-container">

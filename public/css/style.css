@@ -139,5 +139,10 @@ form div.inputImg img{
     max-height: 190px;
     max-width: 190px;
     object-fit: contain;
+}
 
+table.dataTable img{
+    max-height: 190px;
+    max-width: 190px;
+    object-fit: contain;
 }
