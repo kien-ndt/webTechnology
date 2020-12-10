@@ -12,7 +12,6 @@
 		public function product(){				//load trang xem danh sach sp, tu do co the them sp
 			
 			$data['book'] = $this->load->model('BookModel')->getGeneralBookSkip(1,9999);
-			
 			$this->load->view('admin',$data);
 		}
 
@@ -59,9 +58,8 @@
 			$img = $bookModel->getBookByID($id)[0]['product_image'];
 			$res = $bookModel->deleteBookByID($id);
 			if ($res){
-				echo "da xoa";
-				echo $img;
-				unlink($img);
+				if (!($img=="images/noImg.png"))
+								unlink($img);
 			}
 			else {
 				echo " ko xoa dc";

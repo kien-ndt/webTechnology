@@ -25,7 +25,7 @@
                 <td><?php echo (int)$key +1?></td>
                 <td><img src="<?php echo BASE_URL.$value['product_image']?>" alt=""></td>
                 <td><?php echo $value['product_name']?></td>
-                <td><?php echo $value['category_id']?></td>
+                <td><?php echo $value['category_name']?></td>
                 <td><?php echo $value['product_desc']?></td>
                 <td><?php echo $value['product_price']?></td>                
                 <td class="nav">

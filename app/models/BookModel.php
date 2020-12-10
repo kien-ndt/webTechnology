@@ -13,7 +13,9 @@
 
 		public function getGeneralBookSkip($step,$num){
 			$offset = ((int) $step - 1) * (int)$num;
-			$sql = "select * from $this->table ORDER BY product_id DESC limit $num offset $offset;";
+			$sql = "select * from $this->table, category_product 
+					where $this->table.category_id = category_product.category_id   
+					ORDER BY product_id DESC limit $num offset $offset;";
 		
 			return $this->db->select($sql);  
 		}
