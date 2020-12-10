@@ -32,7 +32,13 @@
 			$data['book'] = $bookModel->getGeneralBookSkip($page,12);
 
 			$data['category'] = $this->load->model("Category")->getNameID();
-			if (isset($params['category'])) $data['curCategory']=$params['category'];
+			if (isset($params['category'])) {
+				$data['curCategory']=$params['category'];
+				$data['book'] = $bookModel->getBookByCategorySkip($params['category'],$page,12);
+			}
+			else {
+				$data['book'] = $bookModel->getGeneralBookSkip($page,12);
+			}
 
 			$this->load->view('home',$data); 
 		}

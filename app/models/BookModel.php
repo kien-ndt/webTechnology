@@ -20,10 +20,21 @@
 			return $this->db->select($sql);  
 		}
 
+		public function getBookByCategorySkip($category,$step,$num){
+			$offset = ((int) $step - 1) * (int)$num;
+			$sql = "select * from $this->table, category_product 
+					where $this->table.category_id = category_product.category_id   
+					and category_product.category_name = '$category'
+					ORDER BY product_id DESC limit $num offset $offset;";
+		
+			return $this->db->select($sql);  
+		}
+
 		public function getBookByID($id){
 			$sql = "select * from $this->table where product_id=$id";
 			return $this->db->select($sql);  
 		}
+
 
 		public function deleteBookByID($id){
 			$sql = "delete from $this->table where product_id=$id";
