@@ -38,10 +38,17 @@
                 }
             ?>
             </ul>
-            <div>
-            <a href="<?php echo BASE_URL?>index/homepage/1">1</a>
-            <a href="<?php echo BASE_URL?>index/homepage/2">2</a>
-            <a>3</a>
+
+            <div id = "pagenav">
+                <?php
+                    if (isset($page['pre'])){
+                ?>
+                    <a href="<?php echo BASE_URL?>index/homepage/<?php echo $page['pre']?>" class="pagenav"><?php echo $page['pre']?></a>
+                <?php 
+                    }
+                ?>
+                    <a href="#" class="pagenav aactive"><?php echo $page['cur']?></a>
+                    <a href="<?php echo BASE_URL?>index/homepage/<?php echo $page['next']?>" class="pagenav"><?php echo $page['next']?></a>
             </div>
         </div>
     </div>

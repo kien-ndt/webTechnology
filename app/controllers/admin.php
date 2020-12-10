@@ -84,7 +84,7 @@
 			$categorymodel = $this->load->model("Category");
 			$res=$categorymodel->findByName($category_name);		//tim xem co category nay hay chua
 			if ($res){
-				echo "Tên sản phẩm đã tồn tại";
+				echo "Tên danh mục đã tồn tại";
 			}
 			else{
 				$categorymodel->insert($data);

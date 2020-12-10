@@ -12,8 +12,18 @@
 		}
 
 		public function homepage($page) {
-			echo $page;
+			$data['page']=array();
+			if ((int)$page<=1){
+				$page=1;
+			}
+			else{
+				$data['page']['pre'] = (int)$page - 1;
+			}
+			$data['page']['cur'] = $page;
+			$data['page']['next'] = (int)$page + 1;
+
 			$bookModel = $this->load->model('BookModel');
+
 			$data['book'] = $bookModel->getGeneralBookSkip($page,12);
 
 			$data['category'] = $this->load->model("Category")->getNameID();
