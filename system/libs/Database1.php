@@ -61,9 +61,18 @@
 				} else {
 					print"ko chạy đc sql select";
 				}  
-			return $value;
+				return $value;
+			}
 		}
-    }
+
+		public function deleteRecords($sql){
+			if (!($this->conn)) {
+                die ("Cannot connect to".$this->server." using ".$this->user);
+            } else {
+				mysqli_select_db($this->conn, $this->dbname);
+				return mysqli_query($this->conn, $sql);
+			}
+   		}
 	}
 ?>
 

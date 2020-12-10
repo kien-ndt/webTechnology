@@ -18,7 +18,7 @@
 
 
 		public function addProduct() {		//load trang them san pham, co goi den category lay id va name
-			$data['category'] = $this->load->model("Category")->getNameID();
+			$data['category'] = $this->load->model("Category")->getNameID();	//lay category cho nguoi dung chon
 			$this->load->view('addProduct',$data); 
 		}
 
@@ -52,6 +52,16 @@
 				$data['product_image'] = $target_dir."noImg.png";			
 			}
 			$bookModel->insert($data);
+		}
+
+		public function deleteProduct($id){
+			$res=$this->load->model("BookModel")->deleteBookByID($id);
+			if ($res){
+				echo "da xoa";
+			}
+			else {
+				echo " ko xoa dc";
+			}
 		}
 
 
