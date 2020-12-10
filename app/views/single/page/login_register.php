@@ -81,7 +81,13 @@
             if (item.name==="gender" && !item.checked) {
                 continue;
             }
-            console.log(item.name+"  ");
+            if (item.name !="gender"){
+                if (item.value=="" || item.value==null){
+                    mes.innerHTML = item.name+" không được bỏ trống";
+                    // item.style.backgroundColor = "red";
+                    return;
+                }
+            }
             data+=(encodeURIComponent(item.name) + '=' + encodeURIComponent(item.value));
             data+="&";
         }
@@ -90,4 +96,5 @@
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xmlhttp.send(data);
     }
+    
 </script>

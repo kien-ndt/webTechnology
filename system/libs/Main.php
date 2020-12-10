@@ -31,7 +31,7 @@ class Main {
 		unset($this->param['url']);		//bo tham so ?url=...
 	
 		$_SESSION['role']='admin';
-		// unset($_SESSION['role']);
+		unset($_SESSION['role']);
 		define('ROLE', $this->getRole());
 
 		if($this->url!=NULL) {
