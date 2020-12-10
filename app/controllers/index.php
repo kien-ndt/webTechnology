@@ -8,10 +8,15 @@
 		}
 
 		public function index() {
-			$this->homepage(1);
+			$this->homepage(array('page'=>'1'));
 		}
 
-		public function homepage($page) {
+		public function homepage($params) {
+			if (!isset($params['page'])) 
+				$page = 1;
+			else
+				$page = $params['page'];
+				
 			$data['page']=array();
 			if ((int)$page<=1){
 				$page=1;
@@ -27,7 +32,8 @@
 			$data['book'] = $bookModel->getGeneralBookSkip($page,12);
 
 			$data['category'] = $this->load->model("Category")->getNameID();
-			
+			if (isset($params['category'])) $data['curCategory']=$params['category'];
+
 			$this->load->view('home',$data); 
 		}
 

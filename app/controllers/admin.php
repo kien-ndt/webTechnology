@@ -92,7 +92,9 @@
 			}
 		}
 
-		
+		public function searchProduct(){
+			
+		}
 	}
 
 
