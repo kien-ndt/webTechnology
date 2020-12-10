@@ -46,8 +46,7 @@
             let item = document.getElementById("item_"+id);
             xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
-                        // message.innerHTML += this.responseText;
-                        // form.reset();
+                        item.innerHTML = this.responseText;
                         console.log("da gui request");
                     }
             }

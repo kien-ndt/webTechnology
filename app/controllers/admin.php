@@ -55,9 +55,13 @@
 		}
 
 		public function deleteProduct($id){
-			$res=$this->load->model("BookModel")->deleteBookByID($id);
+			$bookModel = $this->load->model("BookModel");
+			$img = $bookModel->getBookByID($id)[0]['product_image'];
+			$res = $bookModel->deleteBookByID($id);
 			if ($res){
 				echo "da xoa";
+				echo $img;
+				unlink($img);
 			}
 			else {
 				echo " ko xoa dc";
