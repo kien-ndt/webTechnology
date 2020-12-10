@@ -6,10 +6,10 @@
 			parent::__construct();
 		}
 		private $table = "product";
-        public function findUser($table, $data){
-            
-        }
 
+		public function getCountBook(){
+			return $this->db->countRecords($this->table);
+		}
 
 		public function getGeneralBookSkip($step,$num){
 			$offset = ((int) $step - 1) * (int)$num;

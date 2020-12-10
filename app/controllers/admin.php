@@ -55,7 +55,8 @@
 			};
 		}
 
-		public function deleteProduct($id){
+		public function deleteProduct($param){
+			$id=$param['id'];
 			$bookModel = $this->load->model("BookModel");
 			$img = $bookModel->getBookByID($id)[0]['product_image'];
 			$res = $bookModel->deleteBookByID($id);
