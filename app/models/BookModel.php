@@ -18,9 +18,8 @@
 		}
 
 		public function getBookByID($id){
-			// $sql = "select * from $this->table ORDER BY product_id DESC limit $num offset $offset;";
-			echo "getbookbyid chua cai dat";
-			// return $this->db->select($sql);  
+			$sql = "select * from $this->table where product_id=$id";
+			return $this->db->select($sql);  
 		}
 
 		public function deleteBookByID($id){

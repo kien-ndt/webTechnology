@@ -26,7 +26,7 @@ class Main {
 	public function getUrl() {
 		$this->url = isset($_GET['url']) ? $_GET['url'] : NULL;
 		
-		echo $this->url;
+		// echo $this->url;
 		// $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 		$_SESSION['role']='admin';
