@@ -4,6 +4,8 @@
     <div id="container">
         <?php include_once "single/admin/adminSidebar.php"?>
         <div id="page">
+            <div class="adminAddArea">
+                
             <form class ="adminForm" id="addproduct" name="addproduct" enctype="multipart/form-data" onsubmit="return false;">
                 <label>Tên sách: </label>
                 <input type="text" name="product_name">
@@ -33,7 +35,8 @@
                 <button type="button" onclick="submitAddProduct()";>Thêm</button>
             </form>
             
-            <span id="message"></span>
+            <div id="message">aaaaaaaaaaa</div>
+            </div>
     <script>
         function submitAddProduct(){
             let form = document.getElementById("addproduct");
@@ -44,7 +47,7 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     message.innerHTML += this.responseText;
-                    // form.reset();
+                    form.reset();
                 }
             }
             var data ="";

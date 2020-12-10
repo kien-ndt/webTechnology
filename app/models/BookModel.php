@@ -31,7 +31,7 @@
 		}
 
         public function insert($data){
-			$this->db->insert($this->table,$data);
+			return $this->db->insert($this->table,$data);
         }
 
 		public function setTable($table){

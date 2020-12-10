@@ -43,14 +43,16 @@
 			$imageName = time() . '-' . $_FILES["profileImage"]["name"];
 			$product_image = $target_dir . basename($imageName);
 			if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $product_image)){
-				echo "hinh anh thanh cong";
+				// echo "hinh anh thanh cong";
 				$data['product_image'] = $product_image;
 			}
 			else {
-				echo "loi hinh anh";
+				// echo "loi hinh anh";
 				$data['product_image'] = $target_dir."noImg.png";			
 			}
-			$bookModel->insert($data);
+			if($bookModel->insert($data)){
+				echo "<div>Đã thêm $product_name<div>";
+			};
 		}
 
 		public function deleteProduct($id){
