@@ -9,7 +9,7 @@
 		}
 
 
-		public function product(){				//load trang xem danh sach sp, tu do co the them sp
+		public function product(){			//load trang xem danh sach sp, tu do co the them sp
 			
 			$data['book'] = $this->load->model('BookModel')->getGeneralBookSkip(1,9999);
 			$this->load->view('admin',$data);
@@ -55,7 +55,8 @@
 			};
 		}
 
-		public function deleteProduct($id){
+		public function deleteProduct($param){
+			$id=$param['id'];
 			$bookModel = $this->load->model("BookModel");
 			$img = $bookModel->getBookByID($id)[0]['product_image'];
 			$res = $bookModel->deleteBookByID($id);
@@ -66,6 +67,16 @@
 			else {
 				echo " ko xoa dc";
 			}
+		}
+
+		public function searchProduct($param){
+			if (isset($param['query']) && $param['query']!="" ){
+				$data['book'] = $this->load->model('BookModel')->getGeneralBookWithNameSkip(1,9999, $param['query']);
+			}
+			else {
+				$data['book'] = $this->load->model('BookModel')->getGeneralBookSkip(1,9999);
+			}
+			$this->load->view('single/admin/productList',$data);
 		}
 
 
@@ -92,7 +103,6 @@
 			}
 		}
 
-		
 	}
 
 

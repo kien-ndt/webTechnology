@@ -1,8 +1,10 @@
         <div class="sidebar">
             <ul style="overflow-y: auto;">
-                <li><a href="#">Tất cả</a></li>
+                <?php 
+                    echo "<li><a href=\"".BASE_URL."index/homepage/?page=1\">Tất cả</a></li>";
+                ?>
                 <?php foreach($category as $value){
-                    echo "<li><a href=\"#\">".$value['category_name']."</a></li>";
+                    echo "<li><a href=\"".BASE_URL."index/homepage/?page=1&category=".$value['category_name']."\">".$value['category_name']."</a></li>";
                 }?>
             </ul>
         </div>

@@ -8,10 +8,17 @@
 		}
 
 		public function index() {
-			$this->homepage(1);
+			$this->homepage(array('page'=>'1'));
 		}
 
-		public function homepage($page) {
+		public function homepage($params) {
+			$bookModel = $this->load->model('BookModel');
+			$countitem=(int)2;
+			if (!isset($params['page'])) 
+				$page = 1;
+			else
+				$page = $params['page'];
+				
 			$data['page']=array();
 			if ((int)$page<=1){
 				$page=1;
@@ -19,15 +26,29 @@
 			else{
 				$data['page']['pre'] = (int)$page - 1;
 			}
+
 			$data['page']['cur'] = $page;
-			$data['page']['next'] = (int)$page + 1;
 
-			$bookModel = $this->load->model('BookModel');
+			$countBook=(int)$bookModel->getCountBook();
+			$maxpage = floor( $countBook/  (int)$countitem);
+			if ($maxpage!=$countBook/(int)$countitem){
+				$maxpage = (int)$maxpage + 1;
+			}
+			if ((int)$page+1<=$maxpage){
+				$data['page']['next'] = (int)$page + 1;
+			}
 
-			$data['book'] = $bookModel->getGeneralBookSkip($page,12);
+			$data['book'] = $bookModel->getGeneralBookSkip($page,$countitem);
 
 			$data['category'] = $this->load->model("Category")->getNameID();
-			
+			if (isset($params['category'])) {
+				$data['curCategory']=$params['category'];
+				$data['book'] = $bookModel->getBookByCategorySkip($params['category'],$page,$countitem);
+			}
+			else {
+				$data['book'] = $bookModel->getGeneralBookSkip($page,$countitem);
+			}
+
 			$this->load->view('home',$data); 
 		}
 

@@ -73,7 +73,14 @@
 				mysqli_select_db($this->conn, $this->dbname);
 				return mysqli_query($this->conn, $sql);
 			}
-   		}
+		}
+		
+		public function countRecords($table){
+			$SQLcmd = "SELECT COUNT(*) as count FROM $table";
+			mysqli_select_db($this->conn, $this->dbname);
+			$result = mysqli_query($this->conn, $SQLcmd);
+			return $result->fetch_assoc()['count'];
+		}   
 	}
 ?>
 
