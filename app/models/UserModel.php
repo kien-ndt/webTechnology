@@ -2,7 +2,7 @@
 
 	class UserModel extends DModel {
 
-		private $table = "user";
+		private $table = "customer";
 
 		public function __construct() {
 			parent::__construct();
@@ -14,7 +14,7 @@
         }
 
     public function findUserEmail($data){
-			$sql = "select * from $this->table where email='$data'";
+			$sql = "select * from $this->table where customer_email='$data'";
 			$result = $this->db->select($sql);
 			if ($result){
 				return true;

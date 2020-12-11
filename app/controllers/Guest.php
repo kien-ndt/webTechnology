@@ -20,25 +20,23 @@
         }
 
         public function signUp() {
-            $name = $_POST["name"];
-            $phone = $_POST["phone"];
-            $email = $_POST["email"];
-            // $username = $_POST["username"];
-            $pass = $_POST["pass"];
-            $gender = $_POST["gender"];
-            $birthdate = $_POST["birthday"];
+            $customer_name = $_POST["name"];
+            $customer_phone = $_POST["phone"];
+            $customer_email = $_POST["email"];
+            $customer_password = $_POST["pass"];
+            $customer_gender = $_POST["gender"];
+            $customer_birthday = $_POST["birthday"];
             $data = array(
-                	'name' => $name,
-                    'phone' => $phone,
-                    'email' => $email,
-                    // 'username' => $username,
-                    'pass' => $pass,
-                    'gender' => $gender,
-                    'birthdate' => $birthdate
+                	'customer_name' => $customer_name,
+                    'customer_phone' => $customer_phone,
+                    'customer_email' => $customer_email,
+                    'customer_password' => $customer_password,
+                    'customer_gender' => $customer_gender,
+                    'customer_birthday' => $customer_birthday
             );           
 			
             $usermodel = $this->load->model('UserModel');
-            if ($usermodel->findUserEmail($email)){
+            if ($usermodel->findUserEmail($customer_email)){
                 echo "Email đã tồn tại";
             }
             else{

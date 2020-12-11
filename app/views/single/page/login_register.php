@@ -82,16 +82,14 @@
                 continue;
             }
             if (item.name !="gender"){
-                if (item.value=="" || item.value==null){
+                if (item.name!="" && (item.value=="" || item.value==null)){
                     mes.innerHTML = item.name+" không được bỏ trống";
-                    // item.style.backgroundColor = "red";
                     return;
                 }
             }
             data+=(encodeURIComponent(item.name) + '=' + encodeURIComponent(item.value));
             data+="&";
         }
-        console.log(data);
         xmlhttp.open("POST", <?php echo "\"".BASE_URL."\""?>+"guest/signUp", true);
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xmlhttp.send(data);

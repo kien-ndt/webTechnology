@@ -13,7 +13,7 @@
 
 		public function homepage($params) {
 			$bookModel = $this->load->model('BookModel');
-			$countitem=(int)2;
+			$countitem=(int)1;
 			if (!isset($params['page'])) 
 				$page = 1;
 			else
