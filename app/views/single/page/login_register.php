@@ -5,7 +5,7 @@
             <div class="lrchoice" onclick="choice(2);">Tạo tài khoản</div>
         </div>
         <button class="closebutton" onclick="closelogin();">x</button>
-        <form class="lrform lform" action="<?php echo BASE_URL ?>Guest/signIn" method="POST">
+        <form id = "loginForm" class="lrform lform" action="<?php echo BASE_URL ?>Guest/signIn" method="POST">
             <div>
                 <label>Email:</label>
                 <input type="text" name="userEmail" placeholder="Nhập email hoặc số điện thoại">
@@ -14,8 +14,9 @@
                 <label>Mật khẩu:</label>
                 <input type="password" name="userPassword" placeholder="Mật khẩu từ 6 đến...kí tự">
             </div>
+            <span id="loginmess"></span>
             <div>
-                <button onclick="closelogin();">Đăng nhập</button>
+                <button type="button" onclick="submitLogin();">Đăng nhập</button>
             </div>
         </form>
         <form id="registrationForm" class="lrform rform" action="<?php echo BASE_URL ?>Guest/signUp" method="POST">
@@ -95,4 +96,32 @@
         xmlhttp.send(data);
     }
     
+    function submitLogin(){
+        let form = document.getElementById("loginForm");
+        let xmlhttp = new XMLHttpRequest();
+        let loginmess=document.getElementById("loginmess");
+        loginmess.innerHTML="";
+        let data="";
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                loginmess.innerHTML = this.responseText;
+                if (this.responseText.includes("thành công")){
+                    window.location.replace("<?php echo BASE_URL?>");
+                }
+            }
+        }
+        for(var i = 0 ; i < form.elements.length ; i++){
+            var item = form.elements.item(i);
+            if (item.name!="" && (item.value=="" || item.value==null)){
+                mes.innerHTML = item.name+" không được bỏ trống";
+                return;
+            }
+    
+            data+=(encodeURIComponent(item.name) + '=' + encodeURIComponent(item.value));
+            data+="&";
+        }
+        xmlhttp.open("POST", <?php echo "\"".BASE_URL."\""?>+"guest/signIn", true);
+        xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xmlhttp.send(data);
+    }
 </script>
