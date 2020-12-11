@@ -1,46 +1,71 @@
-.sidebar{
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    left: 0;
-    width: 250px;
-    height: fit-content;
-    max-height: 100%;
-    min-width: 250px;
-    background-color: #0AA8A8;
-    border-radius: 4px;
-    overflow: auto;
-}
-.sidebar ul{
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-.sidebar ul li {
-    margin: 0px;
-    display: flex;
-    width: 100%;
-    line-height: 35px;
-    font-size: larger;
+.menu {
     font-family: Arial, Helvetica, sans-serif;
-    padding: 10px;
-    box-sizing: border-box;
-    border-top: 1px solid blue ;
-    transition: 0.4s;
-    box-sizing: border-box;
-    cursor: pointer;
-}
-.sidebar a {
-    text-decoration: none;
-    color: white;
-    width: 100%;
-    height: 100%;
-}
-.sidebar ul li:hover {
-    background-color: green;
+    width: 230px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
+.item {
+    border-top: 1px solid #55a8a8;
+    overflow: hidden;
+}
+
+.btn {
+    display: block;
+    padding: 16px 20px;
+    background: #0AA8A8;
+    /* background: black; */
+    color: white;
+    position: relative;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #0AA8A8;
+    /* background: black; */
+    left: 20px;
+    bottom: -7px;
+    transform: rotate(45deg);
+}
+
+.btn i {
+    margin-right: 10px;
+}
+
+.smenu {
+    background: #333;
+    overflow: hidden;
+    transition: ease-in-out 0.3s;
+    max-height: 0em;
+}
+
+.smenu a {
+    display: block;
+    padding: 16px 26px;
+    color: white;
+    margin: 4px 0;
+    position: relative;
+}
+
+.smenu a::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background: #0AA8A8;
+    left: 0;
+    top: 0;
+    transition: 0.7s;
+    opacity: 0;
+}
+
+.smenu a:hover::before {
+    opacity: 1;
+}
+
+.item:hover .smenu {
+    max-height: 10em;
+}
