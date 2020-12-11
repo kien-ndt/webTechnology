@@ -15,6 +15,10 @@
             $this->load->view('footer');
         }
 
+        public function home() {
+            echo 'Trang User';
+        }
+
         public function signUp() {
             $name = $_POST["name"];
             $phone = $_POST["phone"];
@@ -51,5 +55,13 @@
             $userModel = $this->load->model('UserModel');
 
             $count = $userModel->login($table, $username, $password);
+
+            if($count == 0) {
+                //Neu dang nhap sai tra lai trang login chua co css
+                header("Location:".BASE_URL."guest");
+            } else {
+                //Dang nhap thanh cong 
+                header("Location:".BASE_URL."guest/home");
+            }
         }
     }

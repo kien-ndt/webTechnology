@@ -6,6 +6,7 @@ class Main {
 	public $controllerName = "index";// ten class
 	public $methodName = "index";
 	public $controllerPath = "app/controllers/";
+	public $param;
 	public $controller;
 
 	public function __construct() {
@@ -25,12 +26,12 @@ class Main {
 
 	public function getUrl() {
 		$this->url = isset($_GET['url']) ? $_GET['url'] : NULL;
-		
-		echo $this->url;
-		// $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
+		$this->param = $_GET;		
+		unset($this->param['url']);		//bo tham so ?url=...
+	
 		$_SESSION['role']='admin';
-		// unset($_SESSION['role']);
+		unset($_SESSION['role']);
 		define('ROLE', $this->getRole());
 
 		if($this->url!=NULL) {
@@ -67,11 +68,11 @@ class Main {
 
 
 	public function callMethod() {
-		if(isset($this->url[2])) {
+		if(!empty($this->param)) {
 			//?url=category [0]/update_category [1]/24 [2]
 			$this->methodName = $this->url[1];
 			if(method_exists($this->controller, $this->methodName)) {
-				$this->controller->{$this->methodName}($this->url[2]);
+				$this->controller->{$this->methodName}($this->param);
 			} else {
 				header("Location:".BASE_URL."index/notfound");
 			}

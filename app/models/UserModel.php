@@ -6,11 +6,12 @@
 			parent::__construct();
 		}
 
-        public function findUser($table, $data){
-            
+        public function login($table, $username, $password) {
+        	$sql = "SELECT * FROM $table WHERE customer_email = '$username' AND customer_password = '$password'";
+        	return $this->db->affectedRows($sql, $username, $password); //Dem so tai khoan hop le
         }
 
-        public function insertUser($table, $data){
+        public function insertUser($table, $data) {
 			return $this->db->insert($table,$data);
         }
 

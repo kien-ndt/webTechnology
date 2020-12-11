@@ -5,7 +5,7 @@
             <div class="lrchoice" onclick="choice(2);">Tạo tài khoản</div>
         </div>
         <button class="closebutton" onclick="closelogin();">x</button>
-        <form class="lrform lform" action="<?php echo BASE_URL ?>guest/signIn" method="POST">
+        <form class="lrform lform" action="<?php echo BASE_URL ?>Guest/signIn" method="POST">
             <div>
                 <label>Email:</label>
                 <input type="text" name="userEmail" placeholder="Nhập email hoặc số điện thoại">
@@ -18,7 +18,7 @@
                 <button onclick="closelogin();">Đăng nhập</button>
             </div>
         </form>
-        <form id="registrationForm" class="lrform rform" action="<?php echo BASE_URL ?>guest/signUp" method="POST">
+        <form id="registrationForm" class="lrform rform" action="<?php echo BASE_URL ?>Guest/signUp" method="POST">
             <div>
                 <label>Họ tên:</label>
                 <input type="text" name="name" placeholder="Nhập họ và tên">
