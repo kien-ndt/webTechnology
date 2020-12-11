@@ -62,9 +62,19 @@
 				} else {
 					print"ko chạy đc sql select";
 				}  
-				return $value;
+
+			return $value;
 			}
-		}
+    	}
+
+    	public function affectedRows($sql, $username, $password) {
+    		$user = mysqli_query($this->conn, $sql);
+    		if(mysqli_num_rows($user) > 0) {
+    			return 1;
+    		}
+    		return 0;
+    	}
+
 
 		public function deleteRecords($sql){
 			if (!($this->conn)) {
@@ -81,6 +91,7 @@
 			$result = mysqli_query($this->conn, $SQLcmd);
 			return $result->fetch_assoc()['count'];
 		}   
+
 	}
 ?>
 

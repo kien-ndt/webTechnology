@@ -7,7 +7,13 @@
 		public function __construct() {
 			parent::__construct();
 		}
-        public function findUserEmail($data){
+
+        public function login($table, $username, $password) {
+        	$sql = "SELECT * FROM $table WHERE customer_email = '$username' AND customer_password = '$password'";
+        	return $this->db->affectedRows($sql, $username, $password); //Dem so tai khoan hop le
+        }
+
+    public function findUserEmail($data){
 			$sql = "select * from $this->table where email='$data'";
 			$result = $this->db->select($sql);
 			if ($result){
