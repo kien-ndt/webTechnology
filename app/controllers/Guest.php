@@ -66,10 +66,10 @@
 
             if($count == 0) {
                 //Neu dang nhap sai tra lai trang login chua co css
-                header("Location:".BASE_URL."guest");
+                echo "Sai tên đăng nhập hoặc mật khẩu";
             } else {
-                //Dang nhap thanh cong 
-                header("Location:".BASE_URL."guest/home");
+                // header("Location:".BASE_URL."guest/home");
+                echo "Đăng nhập thành công";
             }
         }
     }
