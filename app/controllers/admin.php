@@ -8,6 +8,14 @@
 			parent::__construct();
 		}
 
+		public function index(){
+			$this->login();
+		}
+
+		public function login(){
+			$this->load->view('adminLogin');
+		}
+
 
 		public function product(){			//load trang xem danh sach sp, tu do co the them sp
 			
