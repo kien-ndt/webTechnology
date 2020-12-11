@@ -1,7 +1,7 @@
 <div class="menu">
     <ul style="padding: 0px; margin: 0px;">
         <li class="item">
-            <a href="" class="btn"><i class="fa fa-user"></i> Tất cả</a>
+            <a href="" class="btn">Tất cả</a>
             <div class="smenu">
                 <a href="">Tất cả</a>
                 <a href="">Tất cả</a>
@@ -9,7 +9,7 @@
         </li>
 
         <li class="item">
-            <a href="" class="btn"><i class="fa fa-envelope"></i> Tất cả</a>
+            <a href="" class="btn">Tất cả</a>
             <div class="smenu">
                 <a href="">Tất cả</a>
                 <a href="">Tất cả</a>
@@ -18,7 +18,7 @@
         </li>
 
         <li class="item">
-            <a href="" class="btn"><i class="fa fa-cog"></i> Tất cả</a>
+            <a href="" class="btn">Tất cả</a>
             <div class="smenu">
                 <a href="">Tất cả</a>
                 <a href="">Tất cả</a>
