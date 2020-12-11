@@ -37,8 +37,18 @@
                     'birthdate' => $birthdate
             );           
 			
-			$usermodel = $this->load->model('UserModel');
-			$result = $usermodel->insertUser('user', $data);
+            $usermodel = $this->load->model('UserModel');
+            if ($usermodel->findUserEmail($email)){
+                echo "Email đã tồn tại";
+            }
+            else{
+                $result = $usermodel->insertUser($data);
+                if($result == 1) {
+                    echo "Đăng kí thành công";
+                } else {
+                    echo "Đăng kí thất bại";
+                }
+            }
             // echo "result is $result kk";
             
 			// if($result == 1) {

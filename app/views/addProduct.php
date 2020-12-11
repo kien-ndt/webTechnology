@@ -4,6 +4,8 @@
     <div id="container">
         <?php include_once "single/admin/adminSidebar.php"?>
         <div id="page">
+            <div class="adminAddArea">
+                
             <form class ="adminForm" id="addproduct" name="addproduct" enctype="multipart/form-data" onsubmit="return false;">
                 <label>Tên sách: </label>
                 <input type="text" name="product_name">
@@ -26,14 +28,15 @@
                 
                 <label>Ảnh bìa sách:</label>
                 <div class="inputImg">                    
-                    <img src="../public/img/addImg.png" onClick="triggerClick()" id="imgDisplay">
+                    <img src="<?php echo BASE_URL?>public/img/addImg.png" onClick="triggerClick()" id="imgDisplay">
                     <input type="file" accept=".jpg,.png,.jpeg" name="profileImage" onChange="displayImage(this)" id="profileImage" style="display: none;">
                 </div>
 
                 <button type="button" onclick="submitAddProduct()";>Thêm</button>
             </form>
             
-            <span id="message"></span>
+            <div id="message"></div>
+            </div>
     <script>
         function submitAddProduct(){
             let form = document.getElementById("addproduct");
@@ -44,7 +47,8 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     message.innerHTML += this.responseText;
-                    // form.reset();
+                    form.reset();
+                    document.getElementById('imgDisplay').setAttribute('src', "<?php echo BASE_URL?>public/img/addImg.png");
                 }
             }
             var data ="";
@@ -53,7 +57,6 @@
             }
             console.log(dt);
             xmlhttp.open("POST", <?php echo "\"".BASE_URL."\""?>+"admin/insertProduct", true);
-            // xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xmlhttp.send(dt);
         }
         function triggerClick(e) {

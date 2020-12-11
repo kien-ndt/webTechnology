@@ -8,17 +8,24 @@
 			parent::__construct();
 		}
 
+		public function index(){
+			$this->login();
+		}
 
-		public function product(){				//load trang xem danh sach sp, tu do co the them sp
+		public function login(){
+			$this->load->view('adminLogin');
+		}
+
+
+		public function product(){			//load trang xem danh sach sp, tu do co the them sp
 			
 			$data['book'] = $this->load->model('BookModel')->getGeneralBookSkip(1,9999);
-			
 			$this->load->view('admin',$data);
 		}
 
 
 		public function addProduct() {		//load trang them san pham, co goi den category lay id va name
-			$data['category'] = $this->load->model("Category")->getNameID();
+			$data['category'] = $this->load->model("Category")->getNameID();	//lay category cho nguoi dung chon
 			$this->load->view('addProduct',$data); 
 		}
 
@@ -44,14 +51,40 @@
 			$imageName = time() . '-' . $_FILES["profileImage"]["name"];
 			$product_image = $target_dir . basename($imageName);
 			if(move_uploaded_file($_FILES["profileImage"]["tmp_name"], $product_image)){
-				echo "hinh anh thanh cong";
+				// echo "hinh anh thanh cong";
 				$data['product_image'] = $product_image;
 			}
 			else {
-				echo "loi hinh anh";
+				// echo "loi hinh anh";
 				$data['product_image'] = $target_dir."noImg.png";			
 			}
-			$bookModel->insert($data);
+			if($bookModel->insert($data)){
+				echo "<div>Đã thêm $product_name<div>";
+			};
+		}
+
+		public function deleteProduct($param){
+			$id=$param['id'];
+			$bookModel = $this->load->model("BookModel");
+			$img = $bookModel->getBookByID($id)[0]['product_image'];
+			$res = $bookModel->deleteBookByID($id);
+			if ($res){
+				if (!($img=="images/noImg.png"))
+								unlink($img);
+			}
+			else {
+				echo " ko xoa dc";
+			}
+		}
+
+		public function searchProduct($param){
+			if (isset($param['query']) && $param['query']!="" ){
+				$data['book'] = $this->load->model('BookModel')->getGeneralBookWithNameSkip(1,9999, $param['query']);
+			}
+			else {
+				$data['book'] = $this->load->model('BookModel')->getGeneralBookSkip(1,9999);
+			}
+			$this->load->view('single/admin/productList',$data);
 		}
 
 
@@ -70,7 +103,7 @@
 			$categorymodel = $this->load->model("Category");
 			$res=$categorymodel->findByName($category_name);		//tim xem co category nay hay chua
 			if ($res){
-				echo "Tên sản phẩm đã tồn tại";
+				echo "Tên danh mục đã tồn tại";
 			}
 			else{
 				$categorymodel->insert($data);
@@ -78,7 +111,6 @@
 			}
 		}
 
-		
 	}
 
 

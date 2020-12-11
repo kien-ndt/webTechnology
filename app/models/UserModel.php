@@ -2,6 +2,8 @@
 
 	class UserModel extends DModel {
 
+		private $table = "user";
+
 		public function __construct() {
 			parent::__construct();
 		}
@@ -11,8 +13,19 @@
         	return $this->db->affectedRows($sql, $username, $password); //Dem so tai khoan hop le
         }
 
-        public function insertUser($table, $data) {
-			return $this->db->insert($table,$data);
+    public function findUserEmail($data){
+			$sql = "select * from $this->table where email='$data'";
+			$result = $this->db->select($sql);
+			if ($result){
+				return true;
+			}
+			else{
+				return false;
+			}
+        }
+
+        public function insertUser($data){
+			return $this->db->insert($this->table,$data);
         }
 
 		// public function category($table_category_product) {

@@ -49,7 +49,6 @@ td.nav div{
     display: flex;
     flex-direction: row;
     vertical-align: center;
-    background-color: blue;
     width: 100%;
     height: 100%;
     justify-content: space-evenly;
@@ -65,10 +64,9 @@ td.nav button{
 
 form{
     flex-direction: column;
-    margin-top: 30px;
     width: 100%;
     box-sizing: border-box;
-    flex: 1;
+    flex: 2;
     padding: 40px;
     padding-top: 0px;
 }
