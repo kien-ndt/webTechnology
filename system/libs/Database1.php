@@ -89,7 +89,10 @@
 			$SQLcmd = "SELECT COUNT(*) as count FROM $table";
 			mysqli_select_db($this->conn, $this->dbname);
 			$result = mysqli_query($this->conn, $SQLcmd);
-			return $result->fetch_assoc()['count'];
+			if ($result->num_rows > 0) {
+				return $result->fetch_assoc()['count'];
+			}
+			else return 0;
 		}   
 
 	}
