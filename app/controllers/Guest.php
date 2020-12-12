@@ -69,6 +69,7 @@
                 echo "Sai tên đăng nhập hoặc mật khẩu";
             } else {
                 // header("Location:".BASE_URL."guest/home");
+                $_SESSION['role']="admin";
                 echo "Đăng nhập thành công";
             }
         }
