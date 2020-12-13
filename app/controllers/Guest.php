@@ -73,13 +73,12 @@
                 //Neu dang nhap sai tra lai trang login
                 echo "Sai tên đăng nhập hoặc mật khẩu";
             } else {
-                // lay thong tin tk set session
+                // lay thong tin tk & set session
                 $result = $userModel->getLogin($table, $username, $password);
                 Session::init();
                 Session::set('login', true);
                 Session::set('username', $result['customer_email']);
                 Session::set('userid', $result['customer_id']);
-
                 echo "Đăng nhập thành công";
 
             }
