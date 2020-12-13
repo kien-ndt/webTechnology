@@ -11,11 +11,16 @@
 
         public function login() {
             $this->load->view('header');
+            Session::init();
+            if(Session::get('login') == true) {
+                //Tra ve trang home khi nguoi dung da dang nhap
+            }
             $this->load->view('single/page/login_register');
             $this->load->view('footer');
         }
 
         public function home() {
+            Session::checkSession();
             echo 'Trang User';
         }
 
@@ -65,11 +70,24 @@
             $count = $userModel->login($table, $username, $password);
 
             if($count == 0) {
-                //Neu dang nhap sai tra lai trang login chua co css
+                //Neu dang nhap sai tra lai trang login
                 echo "Sai tên đăng nhập hoặc mật khẩu";
             } else {
-                // header("Location:".BASE_URL."guest/home");
+                // lay thong tin tk set session
+                $result = $userModel->getLogin($table, $username, $password);
+                Session::init();
+                Session::set('login', true);
+                Session::set('username', $result['customer_email']);
+                Session::set('userid', $result['customer_id']);
+
                 echo "Đăng nhập thành công";
+
             }
+        }
+
+        public function logout() {
+            Session::init();
+            Session:destroy();
+            header("Location:".BASE_URL."Guest");
         }
     }

@@ -26,7 +26,7 @@
         <button class="closebutton" onclick="adminClose();">x</button>
         <form class="lrform lform" action="#" style="display: flex;">
             <div>
-                <label>Email/SĐT:</label>
+                <label>Email:</label>
                 <input type="text" placeholder="Nhập email hoặc số điện thoại">
             </div>
             <div>

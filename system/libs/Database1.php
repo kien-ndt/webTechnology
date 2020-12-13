@@ -15,6 +15,7 @@
 			$this->conn = mysqli_connect($this->server, $this->user, $this->pass, $this->dbname);
 			mysqli_set_charset($this->conn,"utf8");  
 		}
+
         public function insert($table, $data) {
             if (!($this->conn)) {
                 die ("Cannot connect to".$this->server." using ".$this->user);
@@ -67,16 +68,7 @@
 			}
     	}
 
-    	public function affectedRows($sql, $username, $password) {
-    		$user = mysqli_query($this->conn, $sql);
-    		if(mysqli_num_rows($user) > 0) {
-    			return 1;
-    		}
-    		return 0;
-    	}
-
-
-		public function deleteRecords($sql){
+    	public function deleteRecords($sql){
 			if (!($this->conn)) {
                 die ("Cannot connect to".$this->server." using ".$this->user);
             } else {
@@ -90,7 +82,27 @@
 			mysqli_select_db($this->conn, $this->dbname);
 			$result = mysqli_query($this->conn, $SQLcmd);
 			return $result->fetch_assoc()['count'];
-		}   
+		}
+
+		//User
+		public function affectedRows($sql, $username, $password) {
+    		$user = mysqli_query($this->conn, $sql);
+    		if(mysqli_num_rows($user) > 0) {
+    			return 1;
+    		}
+    		return 0;
+    	}
+
+    	public function selectUser($sql, $username, $password) {
+    		//Lay du lieu bang user
+    		$user = mysqli_query($this->conn, $sql);
+    		if (mysqli_num_rows($user) > 0) {
+    			$result = mysqli_fetch_assoc($user);
+    		} else {
+    			echo "0 users";
+    		}
+    		return $result;
+    	}
 
 	}
 ?>
