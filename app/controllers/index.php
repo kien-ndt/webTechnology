@@ -1,6 +1,6 @@
 <?php
 
-	class index extends DController {
+	class Index extends DController {
 
 		public function __construct() {
 			$data = array();

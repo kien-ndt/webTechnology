@@ -1,6 +1,6 @@
 <?php
 
-	class admin extends DController {
+	class Admin extends DController {
 
 		public function __construct() {
 			$data = array();

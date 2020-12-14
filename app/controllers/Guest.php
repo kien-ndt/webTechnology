@@ -5,24 +5,24 @@
             parent::__construct();
         }
 
-        public function index() {
-            $this->login();
-        }
+        // public function index() {
+        //     $this->login();
+        // }
 
-        public function login() {
-            $this->load->view('header');
-            Session::init();
-            if(Session::get('login') == true) {
-                //Tra ve trang home khi nguoi dung da dang nhap
-            }
-            $this->load->view('single/page/login_register');
-            $this->load->view('footer');
-        }
+        // public function login() {
+            
+        //     Session::init();
+        //     if(Session::get('login') == true) {
+        //         //Tra ve trang home khi nguoi dung da dang nhap
+        //     }
+        //     $this->load->view('single/page/login_register');
+            
+        // }
 
-        public function home() {
-            Session::checkSession();
-            echo 'Trang User';
-        }
+        // public function home() {
+        //     Session::checkSession();
+        //     echo 'Trang User';
+        // }
 
         public function signUp() {
             $customer_name = $_POST["name"];
@@ -75,18 +75,19 @@
             } else {
                 // lay thong tin tk & set session
                 $result = $userModel->getLogin($table, $username, $password);
-                Session::init();
+                
                 Session::set('login', true);
                 Session::set('username', $result['customer_email']);
                 Session::set('userid', $result['customer_id']);
+                
                 echo "Đăng nhập thành công";
-
+                
             }
         }
 
         public function logout() {
-            Session::init();
-            Session:destroy();
-            header("Location:".BASE_URL."Guest");
+            
+            Session::destroy();
+            header("Location:".BASE_URL."index");
         }
     }

@@ -17,15 +17,15 @@
                 <div class="account-nav-container">
                     <div class="account-nav">
                         
-                        <?php if (!isset($_SESSION['role']))
+                        <?php if (!isset($_SESSION['login']))
                         print("<button onclick='loginclick(); choice(1);'>Đăng nhập</button>
                                <button onclick='loginclick(); choice(2);'>Tạo tài khoản</button>  
                                ");      
                         else {
-                            if ($_SESSION['role']=='admin'){
-                                print("<button><a href='".BASE_URL."admin/product'>Admin page</a></button>");                           
+                            if ($_SESSION['login'] == true){
+                                print("<button><a href='".BASE_URL."admin/product'>Admin page</a></button>");                                 
                             }
-                            print("<button><a href='".BASE_URL."user/logout'>Đăng xuất</a></button>");
+                            print("<button><a href='".BASE_URL."Guest/logout'>Đăng xuất</a></button>");
                         }               
                         ?>                
                     </div>

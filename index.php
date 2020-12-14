@@ -11,7 +11,7 @@
 		<?php
 			// import class trong file system/libs
 
-			session_start();
+			session_start();	
 
 			spl_autoload_register(function($class) {
 				include_once 'system/libs/'.$class.'.php';
