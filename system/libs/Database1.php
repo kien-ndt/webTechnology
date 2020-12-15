@@ -106,6 +106,25 @@
     		}
     		return $result;
     	}
+
+    	//Admin
+    	public function adminCount($sql, $adminname, $password){
+    		$admin = mysqli_query($this->conn, $sql);
+    		if(mysqli_num_rows($admin) > 0) {
+    			return 1;
+    		}
+    		return 0;
+    	}
+
+    	public function selectAdmin($sql, $adminname, $password) {
+    		$admin = mysqli_query($this->conn, $sql);
+    		if (mysqli_num_rows($admin) > 0) {
+    			$result = mysqli_fetch_assoc($admin);
+    		} else {
+    			echo "0 admin";
+    		}
+    		return $result;
+    	}
 	}
 ?>
 

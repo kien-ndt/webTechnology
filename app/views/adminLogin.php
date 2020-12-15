@@ -24,7 +24,7 @@
             <div class="lrchoice">Đăng nhập</div>
         </div>
         <button class="closebutton" onclick="adminClose();">x</button>
-        <form class="lrform lform" action="#" style="display: flex;">
+        <form class="lrform lform" action="<?php echo BASE_URL ?>Admin/signIn" method="POST" style="display: flex;">
             <div>
                 <label>Email:</label>
                 <input type="text" placeholder="Nhập email hoặc số điện thoại">

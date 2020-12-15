@@ -8,13 +8,62 @@
 			parent::__construct();
 		}
 
-		public function index(){
+		public function index() {
 			$this->login();
 		}
 
-		public function login(){
-			$this->load->view('adminLogin');
-		}
+
+        public function login() {
+            
+            
+            if(Session::get('adminlogin') == true) {
+                //Tra ve trang admin khi da dang nhap
+                header("Location:".BASE_URL."Admin/dashboard");
+            }
+            $this->load->view('adminLogin');
+            
+        }
+
+        public function dashboard() {
+        	
+			if(Session::get('adminlogin') == false) {
+				Session::destroy();
+				header("Location:".BASE_URL."Admin");
+			} else {
+				echo 'Trang Admin<a href="<?php echo BASE_URL ?>Admin/signOut">SignOut</a>';
+			}
+        }
+
+        public function signIn() {
+        	$adminname = $_POST['adminName'];
+            $password = $_POST['adminPassword'];
+            $table = 'admin';
+            $adminModel = $this->load->model('AdminModel');
+
+            $count = $adminModel->login($table, $adminname, $password);
+
+            if($count == 0) {
+                //Neu dang nhap sai tra lai trang login
+                echo "Sai tên đăng nhập hoặc mật khẩu";
+                header("Location:".BASE_URL."Admin");
+            } else {
+                // lay thong tin tk & set session
+                $result = $adminModel->getLogin($table, $adminname, $password);
+                
+                Session::set('adminlogin', true);
+                Session::set('adminname', $result['admin_email']);
+                Session::set('adminid', $result['admin_id']);
+                
+                header("Location:".BASE_URL."Admin/dashboard");
+                
+            }
+        }
+
+        public function signOut() {
+        	Session::init();
+        	Session::destroy();
+            header("Location:".BASE_URL."Admin");
+        }
 
 
 		public function product(){			//load trang xem danh sach sp, tu do co the them sp
