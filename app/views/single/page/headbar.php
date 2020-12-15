@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="cart-area">
+            <div class="cart-area" onclick="showCart();">
                 <img src="img/carticon.png">
                 <span>Giỏ hàng</span>
             </div>            

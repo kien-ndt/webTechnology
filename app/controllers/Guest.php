@@ -111,6 +111,17 @@
 
             $bookModel = $this->load->model("BookModel");
             $book = $bookModel->getBookByID($id);
-
+            if (!isset($_SESSION['cart'][$id])){
+                $_SESSION['cart'][$id] = array(
+                                        "name"=>$book[0]['product_name'],
+                                        "img"=> $book[0]['product_image'],
+                                        "price"=>$book[0]['product_price'],
+                                        "count"=>$count                               
+                                    );
+            }
+            else{
+                $_SESSION['cart'][$id]['count']+=$count;  
+            }                  
+            $_SESSION['cart']['total'] += $book[0]['product_price'] * $count;
         }
     }
