@@ -23,7 +23,21 @@
         <?php include_once "single/page/headbar.php" ?>
     </div>
     <div id="containerhome">
-        <?php include_once "single/page/sidebar.php" ?>
+    <div class="menu">
+        <ul style="padding: 0px; margin: 0px;">
+            <li class="item">
+                <a href="" class="btn">Danh mục</a>
+                <div class="smenu">
+                    <?php 
+                        echo "<a href=\"".BASE_URL."index/homepage/?page=1\">Tất cả</a>";
+                    ?>
+                    <?php foreach($category as $value){
+                        echo "<a href=\"".BASE_URL."index/homepage/?page=1&category=".$value['category_name']."\">".$value['category_name']."</a>";
+                    }?>
+                </div>
+            </li>
+        </ul>
+    </div>
         <div id="showitem">
             <ul class="list-item">
             <?php

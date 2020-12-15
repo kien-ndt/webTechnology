@@ -39,7 +39,7 @@
     background: #333;
     overflow: hidden;
     transition: ease-in-out 0.3s;
-    max-height: 0em;
+    /* max-height: 0em; */
 }
 
 .smenu a {
@@ -67,5 +67,5 @@
 }
 
 .item:hover .smenu {
-    max-height: 10em;
+    max-height: fit-content;
 }

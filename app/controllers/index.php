@@ -13,7 +13,7 @@
 
 		public function homepage($params) {
 			$bookModel = $this->load->model('BookModel');
-			$countitem=(int)1;
+			$countitem=(int)5;
 			if (!isset($params['page'])) 
 				$page = 1;
 			else
@@ -41,6 +41,7 @@
 			$data['book'] = $bookModel->getGeneralBookSkip($page,$countitem);
 
 			$data['category'] = $this->load->model("Category")->getNameID();
+
 			if (isset($params['category'])) {
 				$data['curCategory']=$params['category'];
 				$data['book'] = $bookModel->getBookByCategorySkip($params['category'],$page,$countitem);
