@@ -30,7 +30,7 @@
 				Session::destroy();
 				header("Location:".BASE_URL."Admin");
 			} else {
-				echo 'Trang Admin<a href="<?php echo BASE_URL ?>Admin/signOut">SignOut</a>';
+				header("Location:".BASE_URL."Admin/product");
 			}
         }
 
