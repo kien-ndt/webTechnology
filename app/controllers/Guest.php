@@ -93,24 +93,4 @@
             header("Location:".BASE_URL."index");
         }
 
-        public function addProductToCart($param){
-            if (isset($param['count']) && is_numeric($param['count']) && (int)$param['count']>0){
-                $count = (int)$param['count'];
-            }
-            else{
-                header("Location:".BASE_URL);
-                return;
-            }
-            if (isset($param['id']) && is_numeric($param['id']) && (int)$param['id']>0){
-                $id = (int)$param['id'];
-            }
-            else{
-                header("Location:".BASE_URL);
-                return;
-            }
-
-            $bookModel = $this->load->model("BookModel");
-            $book = $bookModel->getBookByID($id);
-
-        }
     }

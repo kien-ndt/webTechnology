@@ -42,8 +42,8 @@
             <ul class="list-item">
             <?php
                 foreach($book as $value){
-                    echo "<li class=\"blockitem\">";
-                    echo "<a href=\"#\" class=\"item\" style=\"text-decoration: none;\">";
+                    echo "<li class=\"blockitem\" onclick=\"addToCart('".$value['product_id']."')\">";
+                    echo "<a class=\"item\" style=\"text-decoration: none;\">";
                     echo "<img src=\"".BASE_URL.$value['product_image']."\">";
                     echo "<div class=\"productname\">".$value['product_name']."</div>";
                     echo "<span class=\"productprice\">".$value['product_price']." vnd</span>";
@@ -71,7 +71,21 @@
                     }
                 ?>
             </div>
+            <div id="messa"></div>
         </div>
     </div>
+    <script>
+        function addToCart(id){
+            let xmlhttp = new XMLHttpRequest();
+            let item = document.getElementById("messa");
+            xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    }
+            }
+            xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/addProductToCart/?id="+id+"&count=1", true);
+            xmlhttp.send();
+        }
+
+    </script>
 </body>
 </html>
