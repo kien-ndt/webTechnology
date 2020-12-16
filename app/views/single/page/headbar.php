@@ -11,7 +11,8 @@
         <div class="account-cart-area">
             <div class="account-area">
                 <div class="account-icon">
-                    <img src="<?php echo PUBLIC_PATH?>img/accounticon.png">
+                    <!-- <img src="echo PUBLIC_PATH?>img/accounticon.png"> -->
+                    <img src="<?php echo BASE_URL?>images/account_image.jpg">
                     <span>Tài khoản</span>
                 </div>
                 <div class="account-nav-container">
@@ -33,8 +34,29 @@
             </div>
 
             <div class="cart-area" onclick="showCart();">
-                <img src="img/carticon.png">
-                <span>Giỏ hàng</span>
+                <div class = "cart-area-nav">                    
+                    <img src="<?php echo BASE_URL?>images/cart_image.png">
+                    <span>Giỏ hàng</span>
+                </div>
+                <div>
+                    <div id="cartShow">
+                        
+                    </div>
+
+                </div>
             </div>            
         </div>
     </div>
+    <script>
+        function showCart(){
+            let xmlhttp = new XMLHttpRequest();
+            let item = document.getElementById("cartShow");
+            xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        item.innerHTML = this.response;
+                    }
+            }
+            xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/showCart", true);
+            xmlhttp.send();
+        }
+    </script>

@@ -82,14 +82,10 @@
                     if (this.readyState == 4 && this.status == 200) {
                     }
             }
-            xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"guest/addProductToCart/?id="+id+"&count=1", true);
+            xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/addProductToCart/?id="+id+"&count=1", true);
             xmlhttp.send();
         }
 
-        function showCart(){
-            
-            console.log("<?php if (isset($_SESSION['cart']['total'])) echo $_SESSION['cart']['total']?>");
-        }
     </script>
 </body>
 </html>

@@ -93,35 +93,4 @@
             header("Location:".BASE_URL."index");
         }
 
-        public function addProductToCart($param){
-            if (isset($param['count']) && is_numeric($param['count']) && (int)$param['count']>0){
-                $count = (int)$param['count'];
-            }
-            else{
-                header("Location:".BASE_URL);
-                return;
-            }
-            if (isset($param['id']) && is_numeric($param['id']) && (int)$param['id']>0){
-                $id = (int)$param['id'];
-            }
-            else{
-                header("Location:".BASE_URL);
-                return;
-            }
-
-            $bookModel = $this->load->model("BookModel");
-            $book = $bookModel->getBookByID($id);
-            if (!isset($_SESSION['cart'][$id])){
-                $_SESSION['cart'][$id] = array(
-                                        "name"=>$book[0]['product_name'],
-                                        "img"=> $book[0]['product_image'],
-                                        "price"=>$book[0]['product_price'],
-                                        "count"=>$count                               
-                                    );
-            }
-            else{
-                $_SESSION['cart'][$id]['count']+=$count;  
-            }                  
-            $_SESSION['cart']['total'] += $book[0]['product_price'] * $count;
-        }
     }
