@@ -27,11 +27,11 @@
         <form class="lrform lform" action="<?php echo BASE_URL ?>Admin/signIn" method="POST" style="display: flex;">
             <div>
                 <label>Email:</label>
-                <input type="text" placeholder="Nhập email hoặc số điện thoại">
+                <input type="text" name="adminName" placeholder="Nhập email hoặc số điện thoại">
             </div>
             <div>
                 <label>Mật khẩu:</label>
-                <input type="password" placeholder="Mật khẩu từ 6 đến...kí tự">
+                <input type="password" name="adminPassword" placeholder="Mật khẩu từ 6 đến...kí tự">
             </div>
             <div>
                 <button type="submit">Đăng nhập</button>
