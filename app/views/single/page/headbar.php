@@ -33,14 +33,14 @@
                 </div>
             </div>
 
-            <div class="cart-area" onclick="showCart();">
-                <div class = "cart-area-nav">                    
+            <div class="cart-area" onmouseleave="hideCart();">
+                <div class = "cart-area-nav" onmouseover="showCart();">                    
                     <img src="<?php echo BASE_URL?>images/cart_image.png">
                     <span>Giỏ hàng</span>
                 </div>
                 <div>
                     <div id="cartShow">
-                        
+
                     </div>
 
                 </div>
@@ -51,6 +51,7 @@
         function showCart(){
             let xmlhttp = new XMLHttpRequest();
             let item = document.getElementById("cartShow");
+            item.style.display="flex";
             xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         item.innerHTML = this.response;
@@ -58,5 +59,9 @@
             }
             xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/showCart", true);
             xmlhttp.send();
+        }
+        function hideCart(){            
+            let item = document.getElementById("cartShow");
+            item.style.display="none";
         }
     </script>

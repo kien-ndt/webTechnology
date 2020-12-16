@@ -132,7 +132,7 @@
     align-items: center;
 }
 .cart-area #cartShow{
-    display: flex;
+    display: none;
     position: absolute;
     flex-direction: column;
     right: 120px;
