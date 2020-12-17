@@ -1,0 +1,537 @@
+/* reset stylesheet */
+
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+nav ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+/* change colours to suit your needs */
+
+ins {
+    background-color: #ff9;
+    color: #000;
+    text-decoration: none;
+}
+
+/* change colours to suit your needs */
+
+mark {
+    background-color: #ff9;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+input,
+select {
+    vertical-align: middle;
+}
+
+/* ------------------------- */
+
+.clear {
+    clear: both;
+}
+
+div {
+    display: block;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-area {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.top-info {
+    background-color: rgb(247, 245, 245);
+}
+
+.content-info {
+    text-align: right;
+    font-size: 14px;
+    padding: 4px;
+    color: rgb(255, 183, 29);
+}
+
+.top-info-email+.top-info-phone {
+    padding: 5px;
+}
+
+.top-logo-search {
+    margin: 20px 0px;
+}
+
+.branch-info {
+    display: flex;
+}
+
+.branch-info .branch {
+    padding: 0px 30px;
+}
+
+.branch-info b {
+    font-size: 13px;
+}
+
+.branch-info .branch-name {
+    font-size: 18px;
+    color: rgb(255, 0, 0);
+}
+
+.top-search {
+    width: 35%;
+}
+
+.search-bar {
+    width: 80%;
+    height: 35px;
+    border: 1px solid rgb(255, 183, 29);
+    border-radius: 3px;
+    margin: auto;
+}
+
+.top-search .search-bar input {
+    border-width: 0px;
+    height: 94%;
+    width: 85%;
+    margin: auto;
+    padding-left: 5px;
+}
+
+.top-search .search-bar input:focus {
+    outline: none;
+}
+
+.top-search .search-bar button {
+    margin: auto;
+    height: 91%;
+    width: 11%;
+    background-color: rgb(255, 183, 29);
+    border: 0px solid transparent;
+    padding: 0;
+    border-radius: 3px;
+}
+
+.fa-search {
+    margin: auto;
+}
+
+.menu {
+    background-color: rgb(255, 183, 29);
+    height: 50px;
+}
+
+.menu b,
+.menu i {
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.flex-display {
+    display: flex;
+}
+
+.main-menu {
+    background-color: rgb(77, 77, 77);
+    padding: 17px 10px;
+}
+
+.menu-nav a {
+    margin: auto 10px;
+    text-decoration: none;
+}
+
+.menu-nav b:hover {
+    border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.menu-nav {
+    padding: 17px 10px;
+
+}
+
+.dropdown-menu .sub-menu a {
+    display: block;
+    text-decoration: none;
+    color: #464646;
+    border: 1px solid #cccccc;
+    padding: 15px 10px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 3px 8px 6px -6px black;
+    display: none;
+}
+.dropdown-menu:hover > .sub-menu a{
+    display: block;
+}
+.sub-menu a:hover {
+    color:  rgb(255, 183, 29);
+}
+
+.product-area {
+    margin-top: 30px;
+}
+.product-title {
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.product-image {
+    width: 45%;
+}
+.product-image img {
+    width: 100%;
+}
+.product-price {
+    width: 40%;
+    padding-left: 20px;
+}
+.notification {
+    width: 25%;
+    padding-left: 20px;
+}
+
+.product-info {
+    margin: 0px auto;
+    
+}
+.product-info ul {
+    list-style-type: none;
+}
+
+
+.notification .attention{
+    border: 1px dashed rgb(255, 183, 29);
+    background-color: #fff5b9;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.notification .shipping-notify {
+    padding: 10px;
+    border: 1px dashed #16b111;
+    background-color: rgb(123, 255, 255);
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.notification .support {
+    
+    border: 1px solid #e7e7e7;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #f7f7f7;
+}
+.notification .support a {
+    text-decoration: none;
+}
+
+.product-price .price-detail{
+    margin-bottom: 15px;
+    
+}
+.price-detail .price-tag {
+    text-transform: uppercase;
+    border: 1px solid #0022bb;
+    border-radius: 5px;
+    background-color: #0022bb;
+    color: white;
+    padding: 3px;
+}
+.price-detail .price {
+    color: red;
+    font-size: 19px;
+    padding-left: 12px;
+}
+
+.product-description {
+    border: 1px solid #e0e0e09f;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.product-description ul {
+    list-style-type:  initial;
+    padding-left: 15px;
+}
+
+.product-amount {
+    border: 1px solid #e6e6e6;
+    width: 40%;
+    
+}
+.product-amount .number {
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    width: 30%;
+    color: rgb(148, 148, 148);
+}
+.product-amount .minus, .add {
+    border: 1px solid #e6e6e6;
+    background-color: #e6e6e6;
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    color: rgb(148, 148, 148);
+}
+.buy-product, .call {
+    padding: 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    margin-left: 10px;
+}
+
+.buy-product {
+    border: 1px solid blue;
+    background-color: blue;
+    width: 30%;
+}
+
+.call {
+    border: 1px solid red;
+    background-color: red;
+    width: 30%;
+    padding-left: 10px;
+}
+
+.topic {
+    margin-top: 20px;
+}
+
+.topic .title {
+    margin: 10px 0px;
+}
+.topic .title span{
+    text-transform: uppercase;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid  rgb(255, 183, 29);
+    background-color:  rgb(255, 183, 29);
+}
+
+.topic .triangle-title {
+    border: 20px solid  rgb(255, 215, 129);
+    border-right: 20px solid transparent;
+    border-top: 20px solid transparent;
+}
+
+.topic .title .horizontal {
+    border-bottom: 1px solid  rgb(255, 183, 29);
+    color: #000;
+    width: 80%;
+}
+
+.topic .details {
+    line-height: 23px;
+}
+
+.begin-footer {
+    border-bottom: 2px solid  rgb(255, 183, 29);
+    margin: 20px 0;
+}
+
+.footer-contact {   
+    margin: 0 auto 25px;
+    padding: auto;
+}
+
+.footer-contact table {
+    width: 100%;
+}
+
+.footer-contact table th {
+    color: rgb(212, 0, 0);
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: left;
+}
+
+.footer-contact table td {
+    padding: 10px;
+    font-size: 14px;
+
+}
+.footer-info {
+    background-color: rgb(241, 174, 28);
+}
+.footer-content div{
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.footer-info .branch table{
+    width: 100%;
+    text-align: left;
+}
+.footer-info .branch table td, th{
+    padding: 5px;
+}
+
+.footer-info .branch table th {
+    text-transform: uppercase;
+}
+.footer-info .branch table td {
+    font-size: 13px;
+    font-style: italic;
+}

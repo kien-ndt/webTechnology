@@ -42,8 +42,9 @@
             <ul class="list-item">
             <?php
                 foreach($book as $value){
-                    echo "<li class=\"blockitem\" onclick=\"addToCart('".$value['product_id']."')\">";
-                    echo "<a class=\"item\" style=\"text-decoration: none;\">";
+                    // echo "<li class=\"blockitem\" onclick=\"addToCart('".$value['product_id']."')\">";
+                    echo "<li class=\"blockitem\">";
+                    echo "<a class=\"item\" style=\"text-decoration: none;\" href='".BASE_URL."guest/productDetail?id=".$value['product_id']."'>";
                     echo "<img src=\"".BASE_URL.$value['product_image']."\">";
                     echo "<div class=\"productname\">".$value['product_name']."</div>";
                     echo "<span class=\"productprice\">".$value['product_price']." vnd</span>";

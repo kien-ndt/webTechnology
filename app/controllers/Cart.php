@@ -44,7 +44,7 @@
             unset($_SESSION['cart']);
             $_SESSION['cart']['count'] = (int)0;
             $_SESSION['cart']['total'] = (int)0;
-            header("Location:".BASE_URL."cart/myCart");
+            header("Location:".BASE_URL."cart/mycart");
         }
         public function showCart(){
             if ((int)$_SESSION['cart']['count']!=0){
@@ -81,7 +81,7 @@
                 $_SESSION['cart']['total'] -= (int)$_SESSION['cart']['list'][$id]['price'] * (int)$count;
                 unset($_SESSION['cart']['list'][$id]);
             }
-            header("Location:".BASE_URL."cart/myCart");
+            header("Location:".BASE_URL."cart/mycart");
         }
 
         public function updateCart(){
@@ -94,6 +94,6 @@
                     $_SESSION['cart']['list'][$id]['count'] = $value;
                 }
             }
-            header("Location:".BASE_URL."cart/myCart");
+            header("Location:".BASE_URL."cart/mycart");
         }
     }

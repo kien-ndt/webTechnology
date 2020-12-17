@@ -93,4 +93,21 @@
             header("Location:".BASE_URL."index");
         }
 
+        public function productDetail($param){
+            if (isset($param['id'])){
+                $id = $param['id'];
+                $data['book'] = $this->load->model('BookModel')->getBookByID($id);
+                if (!sizeof($data['book'])>0){
+                    header("Location:".BASE_URL."index/notfound");
+                    return;
+                }
+                else{
+                    $data['book'] = $data['book'][0];
+                    $this->load->view('InfoProduct',$data);
+                }
+            }
+            else{
+                header("Location:".BASE_URL."index/notfound");
+            }
+        }
     }
