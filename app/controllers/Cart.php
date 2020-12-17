@@ -32,17 +32,19 @@
                                         "price"=>$book[0]['product_price'],
                                         "count"=>$count                               
                                     );
+                                    
+                $_SESSION['cart']['count'] += (int)1; //so loai sp trong gio hang
             }
             else{
                 $_SESSION['cart']['list'][$id]['count']+=$count;  
-            }
-            $_SESSION['cart']['count'] += $count;                  
+            }                 
             $_SESSION['cart']['total'] += $book[0]['product_price'] * $count;
         }
         public function freeCart(){
             unset($_SESSION['cart']);
             $_SESSION['cart']['count'] = (int)0;
             $_SESSION['cart']['total'] = (int)0;
+            header("Location:".BASE_URL."cart/myCart");
         }
         public function showCart(){
             if ((int)$_SESSION['cart']['count']!=0){
@@ -57,5 +59,41 @@
             }
             
             // unset($_SESSION['cart']);
+        }
+
+        public function myCart(){
+            if(isset($_SESSION['cart']['list'])){
+                $data['productInCartList']=$_SESSION['cart']['list'];
+            }
+            else {
+                $data['productInCartList']=array();
+            }
+            $data['countCateProduct'] = $_SESSION['cart']['count'];
+            $data['total'] = $_SESSION['cart']['total'];
+            $this->load->view('cart',$data);
+        }
+
+        public function deleteProductInCart($param){
+            if (isset($param['id'])){
+                $id = $param['id'];
+                $count = $_SESSION['cart']['list'][$id]['count']; 
+                $_SESSION['cart']['count'] -= 1;                  
+                $_SESSION['cart']['total'] -= (int)$_SESSION['cart']['list'][$id]['price'] * (int)$count;
+                unset($_SESSION['cart']['list'][$id]);
+            }
+            header("Location:".BASE_URL."cart/myCart");
+        }
+
+        public function updateCart(){
+            if (isset($_POST['quantity'])){
+                $quantity = $_POST['quantity'];
+                foreach ($quantity as $id=>$value){
+                    $price = $_SESSION['cart']['list'][$id]['price'];
+                    $_SESSION['cart']['total'] -= (int)$price * (int)$_SESSION['cart']['list'][$id]['count'];
+                    $_SESSION['cart']['total'] += (int)$price * (int)$value;
+                    $_SESSION['cart']['list'][$id]['count'] = $value;
+                }
+            }
+            header("Location:".BASE_URL."cart/myCart");
         }
     }

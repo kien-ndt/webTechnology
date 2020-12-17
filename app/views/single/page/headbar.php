@@ -1,5 +1,5 @@
     <div id="header-bar">
-        <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo">
+        <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo"  onclick="window.location.replace('<?php echo BASE_URL?>');">
         <form method="POST" action="product.html">
             <input type="text">
             <select>
@@ -38,7 +38,7 @@
                     <img src="<?php echo BASE_URL?>images/cart_image.png">
                     <span>Giỏ hàng</span>
                 </div>
-                <div>
+                <div onclick="goToCart();">
                     <div id="cartShow">
 
                     </div>
@@ -63,5 +63,8 @@
         function hideCart(){            
             let item = document.getElementById("cartShow");
             item.style.display="none";
+        }
+        function goToCart(){
+            window.location.replace("<?php echo BASE_URL?>cart/mycart");
         }
     </script>
