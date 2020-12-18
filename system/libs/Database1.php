@@ -125,6 +125,11 @@
     		}
     		return $result;
     	}
+
+    	//Shipping
+    	public function insertShip($table,$data) {
+    		
+    	}
 	}
 ?>
 
