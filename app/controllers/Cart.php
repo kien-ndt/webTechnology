@@ -23,7 +23,10 @@
 
             $bookModel = $this->load->model("BookModel");
             $book = $bookModel->getBookByID($id);
-
+            if ($book == null) {
+                echo "Thêm sản phẩm thất bại!";
+                return;
+            }
             if (!isset($_SESSION['cart']['list'][$id])){
                 $_SESSION['cart']['list'][$id] = array(
                                         "id"=>$id,
@@ -39,6 +42,7 @@
                 $_SESSION['cart']['list'][$id]['count']+=$count;  
             }                 
             $_SESSION['cart']['total'] += $book[0]['product_price'] * $count;
+            echo "Đã thêm $count sản phẩm vào giỏ hàng.";
         }
         public function freeCart(){
             unset($_SESSION['cart']);

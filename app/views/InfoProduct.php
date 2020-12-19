@@ -32,37 +32,45 @@
                 <hr>
             </div>
             <div class="product-info flex-display">
-                <div class="product-image"> <img src="<?php echo BASE_URL.$book['product_image']?>" alt="lỗi"></div>
+                <div class="product-image"> <img src="<?php echo BASE_URL.$book['product_image']?>" alt="iphone2"></div>
                 <div class="product-price">
                     <div class="price-detail">
-                        <!-- <span><b>Trạng thái:</b> Còn hàng</span> <br> <br>
-                        <span><b>Xuất xứ:</b> Việt Nam</span> <br> <br> -->
+                        <span><b>Trạng thái:</b> Còn hàng</span> <br> <br>
+                        <span><b>Xuất xứ:</b> Việt Nam</span> <br> <br>
                         <span class="price-tag"><b>Giá bán</b></span>
                         <span class="price"><b><?php echo $book['product_price']." VNĐ"?></b></span>
                     </div>
                     <div class="product-description">
-                        <div class="product-des-title"><b style="font-size: 20px;"><?php echo $book['product_name']?></b></div> <br>
+                        <div class="product-des-title"><b style="font-size: 20px;">Iphone X</b></div> <br>
                         <div class="product-des-detail">
                             <ul>
-                                <li>Danh mục:</li>
+                                <li>euigfeiufieu</li>
                                 <li>ewuigfiuefuf</li>
                                 <li>eufiuegfiuge</li>
                             </ul>
                         </div>
                     </div>
                     <div class="amount flex-display">
-                        <div class="product-amount flex-display">
-                            <div class="minus">-</div>
-                            <div class="number">1</div>
-                            <div class="add">+</div>
+                        <div class="number_price">
+                            <div class="custom pull-left">
+                                <button
+                                    onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) && qty > 1 ) result.value--; else result.value = 1; return false;"
+                                    class="reduced items-count" type="button">-</button>
+                                <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty"
+                                    name="qty">
+                                <button
+                                    onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++; else result.value = 0; return false;"
+                                    class="increase items-count" type="button">+</button>
+                            </div>
                         </div>
-                        <div class="buy-product">
-                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <b>Mua hàng</b>
+                        <div class="buy-product" onclick="addToCart(<?php echo $book['product_id']?>)">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> <b>Đặt hàng</b>
                         </div>
                         <div class="call">
                             <i class="fa fa-phone" aria-hidden="true"></i> <b>Gọi ngay</b>
                         </div>
                     </div>
+                    <p style="margin: 30px" id="messAddToCart"></p>
                 </div>
                 <div class="notification">
                     <div class="attention">
@@ -100,49 +108,16 @@
 
         </div>
 
-        <div class="topic">
+        <!-- <div class="topic">
             <div class="title flex-display">
                 <span>Chi tiết sản phẩm</span>
                 <div class="triangle-title"></div>
                 <div class="horizontal"></div>
             </div>
             <div class="details">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                    PageMaker
-                    including versions of Lorem Ipsum</p>
+                <p>Lorem em Ipsum</p>
             </div>
-        </div>
-
-        <div class="topic">
-            <div class="title flex-display">
-                <span style="font-size: 16px;">Thông số kỹ thuật</span>
-                <div class="triangle-title"></div>
-                <div class="horizontal"></div>
-            </div>
-            <div class="details">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                    PageMaker
-                    including versions of Lorem Ipsum</p> <br>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                    unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                    PageMaker
-                    including versions of Lorem Ipsum</p>
-            </div>
-        </div>
+        </div> -->
 
         <div class="topic">
             <div class="title flex-display">
@@ -190,13 +165,18 @@
     </div>
     <script>
         function addToCart(id){
+            let countProduct = document.getElementById('qty').value;
+            console.log(countProduct);
+            let mess = document.getElementById('messAddToCart');
             let xmlhttp = new XMLHttpRequest();
             let item = document.getElementById("messa");
             xmlhttp.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
+                        mess.innerHTML = this.response;
+                        setTimeout(function(){ mess.innerHTML=""; }, 5000);
                     }
             }
-            xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/addProductToCart/?id="+id+"&count=1", true);
+            xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/addProductToCart/?id="+id+"&count="+countProduct, true);
             xmlhttp.send();
         }
 

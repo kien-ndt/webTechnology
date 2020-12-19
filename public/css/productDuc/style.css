@@ -8,7 +8,6 @@ Author: Richard Clark - http://richclarkdesign.com
 Twitter: @rich_clark
 */
 
-
 html,
 body,
 div,
@@ -303,7 +302,6 @@ div {
 
 .menu-nav {
     padding: 17px 10px;
-
 }
 
 .dropdown-menu .sub-menu a {
@@ -316,31 +314,39 @@ div {
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 3px 8px 6px -6px black;
     display: none;
+    z-index: 1;
 }
-.dropdown-menu:hover > .sub-menu a{
+
+.dropdown-menu:hover>.sub-menu a {
     display: block;
 }
+
 .sub-menu a:hover {
-    color:  rgb(255, 183, 29);
+    color: rgb(255, 183, 29);
 }
 
 .product-area {
     margin-top: 30px;
 }
+
 .product-title {
     text-transform: uppercase;
     font-size: 20px;
 }
+
 .product-image {
     width: 45%;
 }
+
 .product-image img {
     width: 100%;
 }
+
 .product-price {
     width: 40%;
     padding-left: 20px;
 }
+
 .notification {
     width: 25%;
     padding-left: 20px;
@@ -348,14 +354,13 @@ div {
 
 .product-info {
     margin: 0px auto;
-    
 }
+
 .product-info ul {
     list-style-type: none;
 }
 
-
-.notification .attention{
+.notification .attention {
     border: 1px dashed rgb(255, 183, 29);
     background-color: #fff5b9;
     padding: 10px;
@@ -372,20 +377,20 @@ div {
 }
 
 .notification .support {
-    
     border: 1px solid #e7e7e7;
     padding: 10px;
     border-radius: 3px;
     background-color: #f7f7f7;
 }
+
 .notification .support a {
     text-decoration: none;
 }
 
-.product-price .price-detail{
+.product-price .price-detail {
     margin-bottom: 15px;
-    
 }
+
 .price-detail .price-tag {
     text-transform: uppercase;
     border: 1px solid #0022bb;
@@ -394,6 +399,7 @@ div {
     color: white;
     padding: 3px;
 }
+
 .price-detail .price {
     color: red;
     font-size: 19px;
@@ -406,38 +412,70 @@ div {
     border-radius: 4px;
     margin-bottom: 20px;
 }
+
 .product-description ul {
-    list-style-type:  initial;
+    list-style-type: initial;
     padding-left: 15px;
 }
 
-.product-amount {
-    border: 1px solid #e6e6e6;
-    width: 40%;
-    
+/* product amount */
+
+.custom.pull_left {
+    float: none;
+    display: inline-block;
 }
-.product-amount .number {
+
+.number_price {
+    display: inline-block;
+    float: left;
+    text-align: left;
+    padding-right: 10px;
+}
+
+.custom button.items-count {
+    background-color: #f5f5f5;
+    float: left;
+    border: 1px #eaeaea solid;
+    transition: color 100ms ease-in-out 0s, background-color 100ms ease-in-out 0s, background-position 100ms ease-in-out 0s;
+    color: #999;
+    font-size: 10px;
+    line-height: normal;
     padding: 10px;
-    text-align: center;
-    font-size: 25px;
-    width: 30%;
-    color: rgb(148, 148, 148);
+    line-height: 18px;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    font-size: 24px;
 }
-.product-amount .minus, .add {
-    border: 1px solid #e6e6e6;
-    background-color: #e6e6e6;
-    width: 30%;
-    padding: 10px;
-    text-align: center;
-    font-size: 25px;
-    color: rgb(148, 148, 148);
+
+input[type="text"] {
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
 }
-.buy-product, .call {
-    padding: 15px 0;
+
+.qty {
+    padding: 0 5px 1px;
+    height: 37px;
+    border: 1px #ddd solid;
+    text-align: center;
+    width: 40px;
+    float: left;
+    color: #aaa;
+    font-size: 24px;
+    border-right: 0px !important;
+    border-left: 0px !important;
+}
+
+/* product amount */
+
+.buy-product,
+.call {
+    padding: 10px 0;
     text-align: center;
     text-transform: uppercase;
     color: white;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .buy-product {
@@ -450,7 +488,7 @@ div {
     border: 1px solid red;
     background-color: red;
     width: 30%;
-    padding-left: 10px;
+    /* padding-left: 10px; */
 }
 
 .topic {
@@ -460,23 +498,24 @@ div {
 .topic .title {
     margin: 10px 0px;
 }
-.topic .title span{
+
+.topic .title span {
     text-transform: uppercase;
     color: white;
     padding: 10px;
     font-size: 18px;
-    border: 1px solid  rgb(255, 183, 29);
-    background-color:  rgb(255, 183, 29);
+    border: 1px solid rgb(255, 183, 29);
+    background-color: rgb(255, 183, 29);
 }
 
 .topic .triangle-title {
-    border: 20px solid  rgb(255, 215, 129);
+    border: 20px solid rgb(255, 215, 129);
     border-right: 20px solid transparent;
     border-top: 20px solid transparent;
 }
 
 .topic .title .horizontal {
-    border-bottom: 1px solid  rgb(255, 183, 29);
+    border-bottom: 1px solid rgb(255, 183, 29);
     color: #000;
     width: 80%;
 }
@@ -486,11 +525,11 @@ div {
 }
 
 .begin-footer {
-    border-bottom: 2px solid  rgb(255, 183, 29);
+    border-bottom: 2px solid rgb(255, 183, 29);
     margin: 20px 0;
 }
 
-.footer-contact {   
+.footer-contact {
     margin: 0 auto 25px;
     padding: auto;
 }
@@ -510,27 +549,32 @@ div {
 .footer-contact table td {
     padding: 10px;
     font-size: 14px;
-
 }
+
 .footer-info {
     background-color: rgb(241, 174, 28);
 }
-.footer-content div{
+
+.footer-content div {
     color: white;
     padding: 10px;
     text-align: center;
 }
-.footer-info .branch table{
+
+.footer-info .branch table {
     width: 100%;
     text-align: left;
 }
-.footer-info .branch table td, th{
+
+.footer-info .branch table td,
+th {
     padding: 5px;
 }
 
 .footer-info .branch table th {
     text-transform: uppercase;
 }
+
 .footer-info .branch table td {
     font-size: 13px;
     font-style: italic;
