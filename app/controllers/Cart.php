@@ -23,7 +23,10 @@
 
             $bookModel = $this->load->model("BookModel");
             $book = $bookModel->getBookByID($id);
-
+            if ($book == null) {
+                echo "Thêm sản phẩm thất bại!";
+                return;
+            }
             if (!isset($_SESSION['cart']['list'][$id])){
                 $_SESSION['cart']['list'][$id] = array(
                                         "id"=>$id,
@@ -39,12 +42,13 @@
                 $_SESSION['cart']['list'][$id]['count']+=$count;  
             }                 
             $_SESSION['cart']['total'] += $book[0]['product_price'] * $count;
+            echo "Đã thêm $count sản phẩm vào giỏ hàng.";
         }
         public function freeCart(){
             unset($_SESSION['cart']);
             $_SESSION['cart']['count'] = (int)0;
             $_SESSION['cart']['total'] = (int)0;
-            header("Location:".BASE_URL."cart/myCart");
+            header("Location:".BASE_URL."cart/mycart");
         }
         public function showCart(){
             if ((int)$_SESSION['cart']['count']!=0){
@@ -81,7 +85,7 @@
                 $_SESSION['cart']['total'] -= (int)$_SESSION['cart']['list'][$id]['price'] * (int)$count;
                 unset($_SESSION['cart']['list'][$id]);
             }
-            header("Location:".BASE_URL."cart/myCart");
+            header("Location:".BASE_URL."cart/mycart");
         }
 
         public function updateCart(){
@@ -94,6 +98,6 @@
                     $_SESSION['cart']['list'][$id]['count'] = $value;
                 }
             }
-            header("Location:".BASE_URL."cart/myCart");
+            header("Location:".BASE_URL."cart/mycart");
         }
     }

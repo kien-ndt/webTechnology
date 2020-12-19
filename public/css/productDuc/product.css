@@ -1,0 +1,25 @@
+.relate-product {
+    border: 1px solid rgb(255, 215, 129);
+    width: 20%;
+    margin-right: 10px;
+    
+}
+.relate-product img {
+    width: 100%;
+}
+.add-to-cart {
+    display: block;
+    border: 1px solid rgb(255, 196, 70);;
+    background-color: rgb(255, 196, 70);;
+    padding: 15px 30px;
+    color: white;
+    font-size: 16px;
+    margin: 10px 30px 0;
+    text-align: center;
+}
+.price {
+    color: red;
+    padding: 15px 30px;
+    height: 25px;
+    font-size: 20px;
+}
