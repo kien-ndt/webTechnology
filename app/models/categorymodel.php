@@ -1,6 +1,6 @@
 <?php 
 
-	class categorymodel extends DModel {
+	class CategoryModel extends DModel {
 
 		public function __construct() {
 			parent::__construct();

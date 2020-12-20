@@ -1,11 +1,8 @@
     <div id="header-bar">
         <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo"  onclick="window.location.replace('<?php echo BASE_URL?>');">
         <form method="POST" action="product.html">
-            <input type="text">
-            <select>
-            <option>laptop</option>
-            <option>pc</option>
-            </select>
+            <input type="text" style="margin-left: 20%;">
+            
             <button type="submit">Tìm kiếm</button>
         </form>
         <div class="account-cart-area">

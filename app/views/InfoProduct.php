@@ -41,12 +41,11 @@
                         <span class="price"><b><?php echo $book['product_price']." VNĐ"?></b></span>
                     </div>
                     <div class="product-description">
-                        <div class="product-des-title"><b style="font-size: 20px;">Iphone X</b></div> <br>
+                        <div class="product-des-title"><b style="font-size: 20px;"><?php echo $book['product_name'] ?></b></div> <br>
                         <div class="product-des-detail">
                             <ul>
-                                <li>euigfeiufieu</li>
-                                <li>ewuigfiuefuf</li>
-                                <li>eufiuegfiuge</li>
+                                <li><?php echo $book['product_desc'] ?></li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -66,9 +65,7 @@
                         <div class="buy-product" onclick="addToCart(<?php echo $book['product_id']?>)">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> <b>Đặt hàng</b>
                         </div>
-                        <div class="call">
-                            <i class="fa fa-phone" aria-hidden="true"></i> <b>Gọi ngay</b>
-                        </div>
+                        
                     </div>
                     <p style="margin: 30px" id="messAddToCart"></p>
                 </div>
