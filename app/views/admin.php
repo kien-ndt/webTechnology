@@ -37,6 +37,7 @@
                 }
             }
             xmlhttp.open("GET", "<?php echo BASE_URL?>admin/searchProduct/?query="+query, true);
+            xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
             xmlhttp.send();
         }
     

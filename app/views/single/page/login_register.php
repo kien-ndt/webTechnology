@@ -96,6 +96,7 @@
         }
         xmlhttp.open("POST", <?php echo "\"".BASE_URL."\""?>+"guest/signUp", true);
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
         xmlhttp.send(data);
     }
     
@@ -126,6 +127,7 @@
         }
         xmlhttp.open("POST", <?php echo "\"".BASE_URL."\""?>+"guest/signIn", true);
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
         xmlhttp.send(data);
     }
 </script>

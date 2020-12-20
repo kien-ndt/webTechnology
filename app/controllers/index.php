@@ -58,7 +58,7 @@
 			}
 
 			if (isset($params['search'])){
-				$search = ltrim($params['search']);echo $params['search'];
+				$search = ltrim($params['search']);
 				$data['book'] = $bookModel->getBookByName($search,$page,$countitem);
 				$data['search'] = $search;
 			}

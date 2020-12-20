@@ -1,3 +1,6 @@
+body {
+    margin: 0px;
+}
 #containerhome {    
     display: flex;
     flex-direction: row;
@@ -5,7 +8,12 @@
     margin: auto;
     margin-top: 20px;
 }
-
+@media only screen and (max-width: 700px) {
+    #containerhome {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
 ul.list-item{
     display: flex;
     flex-direction: row;
