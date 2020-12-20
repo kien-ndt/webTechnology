@@ -61,7 +61,8 @@
 
         public function signOut() {
         	Session::init();
-        	Session::destroy();
+			// Session::destroy();
+			unset($_SESSION['adminlogin']);
             header("Location:".BASE_URL."Admin");
         }
 

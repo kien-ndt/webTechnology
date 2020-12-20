@@ -57,6 +57,7 @@
             }
             console.log(dt);
             xmlhttp.open("POST", <?php echo "\"".BASE_URL."\""?>+"admin/insertProduct", true);
+            xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
             xmlhttp.send(dt);
         }
         function triggerClick(e) {

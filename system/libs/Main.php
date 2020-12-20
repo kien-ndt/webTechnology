@@ -1,5 +1,5 @@
-<?php 
-
+<?php
+include_once ("system/ajaxMethod/Ajax.php");
 class Main {
 
 	public $url;
@@ -8,9 +8,9 @@ class Main {
 	public $controllerPath = "app/controllers/";
 	public $param;
 	public $controller;
-
 	public function __construct() {
 		$this->getUrl();
+		$this->blockAccess();
 		$this->loadController();
 		$this->callMethod();
 	}
@@ -68,6 +68,7 @@ class Main {
 
 
 	public function callMethod() {
+
 		if(!empty($this->param)) {
 			//?url=category [0]/update_category [1]/24 [2]
 			$this->methodName = $this->url[1];
@@ -93,6 +94,28 @@ class Main {
 					die();
 
 				}
+			}
+		}
+	}
+
+	public function blockAccess(){
+		$ajaxob = new Ajax();
+		if (isset($this->url[0])){
+			$ctrl = strtolower($this->url[0]);
+			if (isset($this->url[1])){
+				$mth = $this->url[1];
+				if ($ctrl == "admin"){
+					if (!isset($_SESSION['adminlogin'])){
+						header("Location:".BASE_URL."admin");
+						return;
+					}
+				}
+				if ($ajaxob->isAjax($ctrl,$mth)){
+					if( !(isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest' )) ){
+						header("Location:".BASE_URL);
+						return;
+					} 
+				}				
 			}
 		}
 	}

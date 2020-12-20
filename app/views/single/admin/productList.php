@@ -52,6 +52,7 @@
             }
             console.log(<?php echo "\"".BASE_URL."\""?>+"admin/deleteProduct/"+id);
             xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"admin/deleteProduct/?id="+id, true);
+            xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
             xmlhttp.send();
         }
     

@@ -11,6 +11,7 @@ body{
     background-attachment: fixed;;
     background-position: center;
     box-sizing: border-box;
+    margin: 0px;
     padding-left: 5%;
 }
 #container{

@@ -42,6 +42,7 @@
                         }
                     }
                     xmlhttp.open("POST", <?php echo "\"".BASE_URL."\""?>+"admin/insertCategory", true);
+                    xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
                     xmlhttp.send(dt);
                 }
             </script>  

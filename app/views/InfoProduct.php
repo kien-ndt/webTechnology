@@ -174,6 +174,7 @@
                     }
             }
             xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/addProductToCart/?id="+id+"&count="+countProduct, true);
+            xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
             xmlhttp.send();
         }
 

@@ -27,7 +27,7 @@
                                ");      
                         else {
                             if ($_SESSION['login'] == true){
-                                print("<button><a href='".BASE_URL."admin/product'>Admin page</a></button>");                                 
+                                print("<button><a href='".BASE_URL."'>Đơn hàng</a></button>");                                 
                             }
                             print("<button><a href='".BASE_URL."Guest/logout'>Đăng xuất</a></button>");
                         }               
@@ -61,6 +61,7 @@
                     }
             }
             xmlhttp.open("GET", <?php echo "\"".BASE_URL."\""?>+"cart/showCart", true);
+            xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest"); 
             xmlhttp.send();
         }
         function hideCart(){            
@@ -84,7 +85,7 @@
         //             // form.reset();
         //         }
         //     }
-        //     xmlhttp.open("GET", "<?php echo BASE_URL?>guest/search/?search="+query, true);
+        //     xmlhttp.open("GET", " echo BASE_URLguest/search/?search="+query, true);
         //     xmlhttp.send();
         // }
     </script>
