@@ -115,7 +115,7 @@
                 echo "<script>loginclick(); choice(1);</script>";
             }
             else {
-                $this->load->view('OrderForm');
+                $this->load->view('OrderForm', $data);
             }
         }
     }

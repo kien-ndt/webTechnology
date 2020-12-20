@@ -31,7 +31,7 @@
             </div>           
            
              <div class="single-product-area">
-                <form enctype="multipart/form-data" action="" class="checkout" method="post" name="checkout">
+                <form enctype="multipart/form-data" action="<?php echo BASE_URL."order/confirmOrder"?>" class="checkout" method="post" name="checkout">
                            <div id="customer_details" class="col2-set">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">
@@ -93,15 +93,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        
-
                                     </tbody>
                                     <tfoot>
 
                                         <tr class="cart-subtotal">
                                             <th>Tổng Giỏ Hàng</th>
-                                            <td><span class="amount">179.000.000 VNĐ</span>
+                                            <td><span class="amount"><?php echo $total?> VNĐ</span>
                                             </td>
                                         </tr>
                                         
@@ -115,7 +112,7 @@
                                         <tr class="shipping">
                                             <th>Shipping</th>
                                             <td>
-                                                50.000 VNĐ
+                                                cho nay can ghi tien ship VNĐ
                                                 <input type="hidden" class="shipping_method" value="free_shipping" id="shipping_method_0" data-index="0" name="shipping_method[0]">
                                             </td>
                                         </tr>
@@ -144,10 +141,8 @@
                                     </ul>
 
                                     <div class="form-row place-order">
-                                        <a  class="button" href="http://localhost/Giaodien/successOrder.php" >Đặt hàng</a>
+                                        <a  style="padding: 0px" class="button"><button type="submit">Đặt hàng</button></a>
                                     </div>
-
-                                  
                                 </div>
                             </div>
                         </form>
