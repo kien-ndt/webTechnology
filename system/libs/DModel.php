@@ -8,7 +8,7 @@
 			// $connect = 'mysql:dbname=bookstore; host=localhost; charset=utf8';
 			$user = 'root';
 			$password = '';
-                        $port = '3308';
+                        $port = '3306';
 			$dbname = "webtechnology";
 			$server ="localhost";
 

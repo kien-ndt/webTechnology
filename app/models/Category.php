@@ -7,12 +7,21 @@
         }
 
         public function getNameID(){
-            $sql = "select category_id,category_name from $this->table";
+            $sql = "select category_id,category_name,category_desc from $this->table order by category_id desc";
             return $this->db->select($sql);     //list[3]['category_id]
         }
         public function findByName($name){
             $sql = "select * from $this->table where category_name='$name'";
             return $this->db->select($sql);
+        }
+        public function findByID($id){
+            $sql = "select * from $this->table where category_id='$id'";
+            return $this->db->select($sql);
+        }
+
+        public function deleteByID($id){
+            $sql = "delete from $this->table where category_id=$id";
+            return $this->db->deleteRecords($sql);
         }
 
         public function insert($data){

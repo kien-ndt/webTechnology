@@ -139,9 +139,16 @@
 
 
 		public function addCategory(){							//load trang them danh muc sp
-			$this->load->view('AddCategory'); 
+			$category = $this->load->model("Category");
+			$data['category'] = $category->getNameID();
+ 			$this->load->view('AddCategory',$data); 
 		}
 		
+		public function loadCategoryList(){
+				$data['category'] = $this->load->model("Category")->getNameID();
+				$this->load->view('single/admin/categoryList',$data);
+		}
+
 		public function insertCategory(){						//sau khi sub mit them danh muc
 			$category_name = $_POST['category_name'];
 			$category_desc = $_POST['category_desc'];
@@ -158,6 +165,14 @@
 			else{
 				$categorymodel->insert($data);
 				echo "Thêm thành công $category_name";
+			}
+		}
+
+		public function deleteCategory($param){
+			if (isset($param['id'])){
+				$id=$param['id'];
+				$categoryModel = $this->load->model("Category");
+				$categoryModel->deleteByID($id);
 			}
 		}
 
