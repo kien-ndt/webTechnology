@@ -13,7 +13,7 @@
 
 		public function homepage($params) {
 			$bookModel = $this->load->model('BookModel');
-			$countitem=(int)5;
+			$countitem=(int)4;
 			if (!isset($params['page'])) 
 				$page = 1;
 			else
@@ -50,6 +50,11 @@
 				$data['book'] = $bookModel->getGeneralBookSkip($page,$countitem);
 			}
 
+			if (isset($params['search'])){
+				$search = ltrim($params['search']);
+				$data['book'] = $bookModel->getBookByName($search,$page,$countitem);
+				$data['search'] = $search;
+			}
 			$this->load->view('home',$data); 
 		}
 

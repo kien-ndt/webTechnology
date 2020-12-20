@@ -1,10 +1,16 @@
     <div id="header-bar">
-        <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo"  onclick="window.location.replace('<?php echo BASE_URL?>');">
-        <form method="POST" action="product.html">
-            <input type="text" style="margin-left: 20%;">
-            
-            <button type="submit">Tìm kiếm</button>
-        </form>
+        <div class="containlogo">
+            <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo"  onclick="window.location.replace('<?php echo BASE_URL?>');">
+            <form method="GET" action="index/homepage/">
+                <div>
+                    <input id="searchInput" type="text" name="search" autocomplete="off">
+                    <button type="submit"><img src="<?php echo BASE_URL."images/searchButton.png"?>"></button>
+                </div>
+                <div id="searchSuggest">
+
+                </div>
+            </form>
+        </div>
         <div class="account-cart-area">
             <div class="account-area">
                 <div class="account-icon">
@@ -61,4 +67,24 @@
             let item = document.getElementById("cartShow");
             item.style.display="none";
         }
+
+        // var t; // public variable for the timeout
+        // function startSearch(){
+        //     if (t) window.clearTimeout(t);
+        //     t = window.setTimeout("search()",200);
+        // }
+        // function search(){
+        //     let xmlhttp = new XMLHttpRequest();
+        //     if (!xmlhttp) alert("Request error!");
+        //     query = document.getElementById("searchInput").value;
+        //     list = document.getElementById("searchSuggest");
+        //     xmlhttp.onreadystatechange = function() {
+        //         if (this.readyState == 4 && this.status == 200) {
+        //             list.innerHTML = this.responseText;
+        //             // form.reset();
+        //         }
+        //     }
+        //     xmlhttp.open("GET", "<?php echo BASE_URL?>guest/search/?search="+query, true);
+        //     xmlhttp.send();
+        // }
     </script>

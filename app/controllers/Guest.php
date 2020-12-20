@@ -1,6 +1,5 @@
 <?php
     class Guest extends DController{
-
         public function __construct() {
             parent::__construct();
         }
@@ -110,4 +109,13 @@
                 header("Location:".BASE_URL."index/notfound");
             }
         }
+
+        // public function search($param){
+        //     if (isset($param['search'])){
+        //         $search = $param['search'];
+        //         $book = $this->load->model('BookModel');
+        //         $data['book'] = $book->getBookByNameSuggest($search);
+        //         $this->load->view('single/page/bookSearchName',$data);
+        //     }
+        // }
     }
