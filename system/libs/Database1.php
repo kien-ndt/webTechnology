@@ -5,14 +5,16 @@
         private $user;
         private $server;
 		private $pass;
+                private $port;
 		private $conn;
 		
-        public function __construct($server, $user, $pass, $dbname) {
+        public function __construct($server, $user, $pass, $dbname,$port) {
             $this->server = $server;
 			$this->user= $user;
 			$this->pass = $pass;
             $this->dbname = $dbname; 
-			$this->conn = mysqli_connect($this->server, $this->user, $this->pass, $this->dbname);
+            $this->port = $port;
+			$this->conn = mysqli_connect($this->server, $this->user, $this->pass, $this->dbname,$this->port);
 			mysqli_set_charset($this->conn,"utf8");  
 		}
 

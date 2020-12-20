@@ -8,11 +8,11 @@
 			// $connect = 'mysql:dbname=bookstore; host=localhost; charset=utf8';
 			$user = 'root';
 			$password = '';
-
+                        $port = '3308';
 			$dbname = "webtechnology";
 			$server ="localhost";
 
-			$this->db = new Database1($server, $user, $password, $dbname);
+			$this->db = new Database1($server, $user, $password, $dbname,$port);
 			// $user="admin1";
 			// $password="123456";
 			// $host="localhost";

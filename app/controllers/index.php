@@ -21,7 +21,7 @@
 					$countBook=(int)$bookModel->getCountBookCategory($params['category']);
 				else
 					$countBook=(int)$bookModel->getCountBook();
-			$countitem=(int)4;
+			$countitem=(int)20;
 			if (!isset($params['page'])) 
 				$page = 1;
 			else

@@ -2,6 +2,7 @@
 <html len="vi">
 <head>
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/page/headerbar.css">
+    <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/page/footer.css">
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/stylesidebar.css">
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/page/container.css">
     <link rel="stylesheet" href="<?php echo PUBLIC_PATH?>css/page/loginform.css">
@@ -26,14 +27,17 @@
     </div>
     <main>
         <div class="image">
-            <img src="<?php echo BASE_URL."images/successOrder.jpg"?>" >
+            <img src="<?php echo BASE_URL?>images/successOrder.jpg" >
         </div>
         <div class="report">
             <p>Cảm ơn bạn đã mua sản phẩm, đơn hàng của bạn đã được hệ thống ghi nhận!</p>
             <a style="color:#5a88ca" href="<?php echo BASE_URL?>"><b><u>Quay lại trang chủ!</u></b></a>
         </div>
     </main>
-
+    </div>
+<div id="footer">
+         <?php include_once "single/page/footer.php" ?>
+    </div>
 </body>
 
 </html>

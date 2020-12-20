@@ -1,9 +1,16 @@
-    <div id="header-bar">
+<div id="top_bar">
+    <div class="containner">
+        <span id="phone"><i class="fa fa-phone-square" aria-hidden="true"></i>0333394599</span>
+        <span id="email"><i class="fa fa-envelope-square" aria-hidden="true"></i>nguyenhailongmchb1@gmail.com</span>
+    </div>
+    
+</div>
+<div id="header-bar">
         <div class="containlogo">
             <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo"  onclick="window.location.replace('<?php echo BASE_URL?>');">
             <form method="GET" action="index/homepage/">
                 <div>
-                    <input id="searchInput" type="text" name="search" autocomplete="off">
+                    <input id="searchInput" type="text" name="search" autocomplete="off" value="Tìm kiếm tên sách">
                     <button type="submit"><img src="<?php echo BASE_URL."images/searchButton.png"?>"></button>
                 </div>
                 <div id="searchSuggest">
@@ -16,7 +23,7 @@
                 <div class="account-icon">
                     <!-- <img src="echo PUBLIC_PATH?>img/accounticon.png"> -->
                     <img src="<?php echo BASE_URL?>images/account_image.jpg">
-                    <span>Tài khoản</span>
+                    
                 </div>
                 <div class="account-nav-container">
                     <div class="account-nav">
@@ -39,7 +46,7 @@
             <div class="cart-area" onmouseleave="hideCart();">
                 <div class = "cart-area-nav" onmouseover="showCart();">                    
                     <img src="<?php echo BASE_URL?>images/cart_image.png">
-                    <span>Giỏ hàng</span>
+                    
                 </div>
                 <a href="<?php echo BASE_URL?>cart/mycart">
                     <div id="cartShow">
@@ -50,6 +57,9 @@
             </div>            
         </div>
     </div>
+<div class="shop-image">
+    <img src="<?php echo BASE_URL?>images/slide-show.png" width="100%" height="300px">
+</div>
     <script>
         function showCart(){
             let xmlhttp = new XMLHttpRequest();
