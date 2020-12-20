@@ -112,7 +112,7 @@
                                         <tr class="shipping">
                                             <th>Shipping</th>
                                             <td>
-                                                50.000 VNĐ
+                                                cho nay can ghi tien ship VNĐ
                                                 <input type="hidden" class="shipping_method" value="free_shipping" id="shipping_method_0" data-index="0" name="shipping_method[0]">
                                             </td>
                                         </tr>
