@@ -58,6 +58,21 @@
 		public function setTable($table){
 			$this->table = $table;
 		}
+
+		public function getBookByName($name,$step,$num){
+			$offset = ((int) $step - 1) * (int)$num;
+			$sql = "select * from $this->table
+					where $this->table.product_name like '%$name%'    
+					ORDER BY product_id DESC limit $num offset $offset;";
+			return $this->db->select($sql);  
+		}
+
+		public function getBookByNameSuggest($name){
+			$sql = "select * from $this->table
+					where $this->table.product_name like '%$name%'    
+					ORDER BY product_id DESC limit 5";
+			return $this->db->select($sql);  
+		}
 	}
 
 
