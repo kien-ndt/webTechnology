@@ -34,11 +34,11 @@
 
             $orderModel = $this->load->model('OrderModel');
             $orderModel->insertShipping($data);
-
+            $ship_id = $orderModel->selectShippingId();
             $oderDetails = $this->load->model('OrderDetails');
             $data = array(
                 'customer_id' => $_SESSION['userid'],
-                'shipping_id' => 1,
+                'shipping_id' => $ship_id,
                 'order_total' => $_SESSION['cart']['total'],
                 'order_status' => 'shipping'
             );

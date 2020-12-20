@@ -12,8 +12,12 @@
 			return $this->db->insert($this->table,$data);
 		}
 		public function selectShippingId() {
-			$result = $this->db->selectShipping($this->table);
-			print_r($result);
+			$sql = "select * FROM $this->table ORDER BY shipping_id DESC limit 1";
+			$res = $this->db->select($sql);
+			if (isset($res[0]['shipping_id'])){
+				return $res[0]['shipping_id'];
+			}
+			else return null;
 		}
 
 	}
