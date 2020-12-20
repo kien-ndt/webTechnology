@@ -12,6 +12,11 @@
 			return $this->db->insert($this->table,$data);
 		}
 
+		public function selectShippingId() {
+			$result = $this->db->selectShipping($this->table);
+			print_r($result);
+		}
+
 	}
 
 ?>

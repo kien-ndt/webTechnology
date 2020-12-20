@@ -40,5 +40,11 @@
             header("Location:".BASE_URL."Order/successOrder");
         }
 
+        public function selectShipping() {
+            $orderModel = $this->load->model('OrderModel');
+            $orderModel->selectShippingId();
+            
+        }
+
     }
 ?>
