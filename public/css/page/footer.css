@@ -1,0 +1,39 @@
+#footer{
+    background-color: #55a8a8;
+    height: 40px;
+    line-height: 40px;
+}
+#footer-name{
+    float:left;
+    height: 40px;
+    width:25%;
+    color: white;
+    font: Arial;
+    text-align: center;
+}
+#footer-contact{
+    float:left;
+    width:65%;
+}
+#footer-contact ul{
+    height: 40px;
+    margin: 0;
+}
+#footer-contact ul li{
+    float: left;
+    list-style: none;
+}
+#footer-contact ul li a{
+    color: white;
+    border-left: 1px solid#ffffff;
+    padding: 0 8px;
+}
+#footer-contact ul li a{
+    border-left:0;
+}
+#footer-MXH{
+    float:left;
+}
+#footer-MXH a{
+    vertical-align: middle;
+}
