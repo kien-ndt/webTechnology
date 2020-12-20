@@ -31,7 +31,7 @@
             </div>           
            
              <div class="single-product-area">
-                <form enctype="multipart/form-data" action="" class="checkout" method="post" name="checkout">
+                <form enctype="multipart/form-data" action="<?php echo BASE_URL."order/confirmOrder"?>" class="checkout" method="post" name="checkout">
                            <div id="customer_details" class="col2-set">
                                 <div class="col-1">
                                     <div class="woocommerce-billing-fields">
@@ -93,9 +93,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        
-
                                     </tbody>
                                     <tfoot>
 
@@ -144,10 +141,8 @@
                                     </ul>
 
                                     <div class="form-row place-order">
-                                        <a  class="button" href="http://localhost/Giaodien/successOrder.php" >Đặt hàng</a>
+                                        <a  style="padding: 0px" class="button"><button type="submit">Đặt hàng</button></a>
                                     </div>
-
-                                  
                                 </div>
                             </div>
                         </form>

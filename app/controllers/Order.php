@@ -32,12 +32,19 @@
                     'shipping_notes' => $shipping_notes
             );
 
-
             $orderModel = $this->load->model('OrderModel');
             $orderModel->insertShipping($data);
 
-            //Tra ve trang xac nhan dat hang
-            header("Location:".BASE_URL."Order/successOrder");
+            $oderDetails = $this->load->model('OrderDetails');
+            $data = array(
+                'customer_id' => $_SESSION['userid'],
+                'shipping_id' => 1,
+                'order_total' => $_SESSION['cart']['total'],
+                'order_status' => 'shipping'
+            );
+            $oderDetails->insertOrders($data);
+
+            // header("Location:".BASE_URL."Order/successOrder");
         }
 
     }

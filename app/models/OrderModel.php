@@ -11,7 +11,6 @@
 		public function insertShipping($data) {
 			return $this->db->insert($this->table,$data);
 		}
-
 	}
 
 ?>
