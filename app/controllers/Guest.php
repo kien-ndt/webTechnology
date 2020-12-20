@@ -27,7 +27,7 @@
             $customer_name = $_POST["name"];
             $customer_phone = $_POST["phone"];
             $customer_email = $_POST["email"];
-            $customer_password = $_POST["pass"];
+            $customer_password = password_hash($_POST['pass'], PASSWORD_DEFAULT);
             $customer_gender = $_POST["gender"];
             $customer_birthday = $_POST["birthday"];
             $data = array(
@@ -66,20 +66,23 @@
             $table = 'customer';
             $userModel = $this->load->model('UserModel');
 
-            $count = $userModel->login($table, $username, $password);
+            $res = $userModel->login($table, $username);
 
-            if($count == 0) {
+            if(!isset($res[0])) {
                 //Neu dang nhap sai tra lai trang login
                 echo "Sai tên đăng nhập hoặc mật khẩu";
             } else {
                 // lay thong tin tk & set session
-                $result = $userModel->getLogin($table, $username, $password);
-                
-                Session::set('login', true);
-                Session::set('username', $result['customer_email']);
-                Session::set('userid', $result['customer_id']);
-                
-                echo "Đăng nhập thành công";
+                if (password_verify($password,$res[0]['customer_password'])){
+                    $result = $userModel->getLogin($table, $username, $res[0]['customer_password']);
+                    
+                    Session::set('login', true);
+                    Session::set('username', $result['customer_email']);
+                    Session::set('userid', $result['customer_id']);
+                    echo "Đăng nhập thành công";
+                }
+                else 
+                    echo "Sai tên đăng nhập hoặc mật khẩu";
                 
             }
         }

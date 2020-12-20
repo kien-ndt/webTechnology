@@ -8,9 +8,10 @@
 			parent::__construct();
 		}
 
-        public function login($table, $username, $password) {
-        	$sql = "SELECT * FROM $table WHERE customer_email = '$username' AND customer_password = '$password'";
-        	return $this->db->affectedRows($sql, $username, $password); //Dem so tai khoan hop le
+        public function login($table, $username) {
+			$sql = "SELECT customer_password FROM $table WHERE customer_email = '$username'";
+			$this->db->select($sql);
+        	return $this->db->select($sql);; //Dem so tai khoan hop le
         }
 
         public function getLogin($table, $username, $password) {
