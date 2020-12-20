@@ -171,7 +171,10 @@
 		public function deleteCategory($param){
 			if (isset($param['id'])){
 				$id=$param['id'];
+				$bookModel = $this->load->model("BookModel");
+				$bookModel->deleteBookByCategoryID($id);
 				$categoryModel = $this->load->model("Category");
+
 				$categoryModel->deleteByID($id);
 			}
 		}

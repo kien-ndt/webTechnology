@@ -96,6 +96,12 @@
 					ORDER BY product_id DESC limit 5";
 			return $this->db->select($sql);  
 		}
+
+		public function deleteBookByCategoryID($category_id){
+			$sql = "delete from $this->table
+					where $this->table.category_id = $category_id;";
+			return $this->db->deleteRecords($sql);
+		}
 	}
 
 
