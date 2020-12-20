@@ -11,6 +11,29 @@
 			return $this->db->countRecords($this->table);
 		}
 
+		public function getCountBookCategory($category){
+			$sql = "SELECT COUNT(*) as count from $this->table, category_product
+					where $this->table.category_id = category_product.category_id
+					and category_product.category_name = '$category'";
+			$res = $this->db->select($sql);
+			if (!empty($res)){
+				return $res[0]['count'];
+			}
+			else return 0;
+
+		}
+
+		public function getCountBookName($name){
+			$sql = "SELECT COUNT(*) as count from $this->table
+					where $this->table.product_name like '%$name%'";
+			$res = $this->db->select($sql);
+			if (!empty($res)){
+				return $res[0]['count'];
+			}
+			else return 0;
+
+		}
+
 		public function getGeneralBookSkip($step,$num){
 			$offset = ((int) $step - 1) * (int)$num;
 			$sql = "select * from $this->table, category_product 

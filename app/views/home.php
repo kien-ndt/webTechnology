@@ -55,9 +55,13 @@
             </ul>
             <div id = "pagenav">
                 <?php
+                    if (isset($search) && $search!="" && $search!=" "){
+                        $search = "&search=".$search;
+                    }
+                    else $search="";
                     if (isset($page['pre'])){
                 ?>
-                    <a href="<?php echo BASE_URL?>index/homepage/?page=<?php echo $page['pre']?><?php if(isset($curCategory)) echo '&category='.$curCategory?>" 
+                    <a href="<?php echo BASE_URL?>index/homepage/?page=<?php echo $page['pre'].$search?><?php if(isset($curCategory)) echo '&category='.$curCategory?>" 
                     class="pagenav"><?php echo $page['pre']?></a>
                 <?php 
                     }
@@ -66,7 +70,7 @@
                 <?php
                     if (isset($page['next'])){
                 ?>
-                    <a href="<?php echo BASE_URL?>index/homepage/?page=<?php echo $page['next']?><?php if(isset($curCategory)) echo '&category='.$curCategory?>" 
+                    <a href="<?php echo BASE_URL?>index/homepage/?page=<?php echo $page['next'].$search?><?php if(isset($curCategory)) echo '&category='.$curCategory?>" 
                     class="pagenav"><?php echo $page['next']?></a>
                 <?php
                     }
