@@ -89,11 +89,6 @@
                                             
                                         <tr>
                                             <td class="actions" colspan="5">
-                                                <div class="coupon">
-                                                    <label for="coupon_code">Khuyến mãi:</label>
-                                                    <input type="text" placeholder="Coupon code " value="" id="coupon_code" class="input-text" name="coupon_code">
-                                                    <input type="submit" value="Áp dụng" name="apply_coupon" class="button">
-                                                </div>
                                                 <div class="order">
                                                     <input type="submit" value="Cập nhật giỏ hàng" name="apply_cart" class="button">
                                                     <a  class="button" href="http://localhost/Giaodien/order.php" >Thanh toán</a>    
@@ -116,13 +111,13 @@
                                             </tr>
                                             
                                             <tr class="shipping">
-                                                
-                                                <th>Khuyến mãi</th>
-                                                <td>0 VNĐ</td>
+                                                <?php $shippingFee = 30000; ?>
+                                                <th>Phí ship</th>
+                                                <td><?php echo $shippingFee.' VNĐ'; ?></td>
                                             </tr>
                                             <tr class="order-total ">
                                                 <th>Tổng thanh toán</th>
-                                                <td><strong>179.000.000 VNĐ</strong> </td>
+                                                <td><strong><?php echo $total+$shippingFee.' VNĐ'; ?></strong> </td>
                                             </tr>
                                         </tbody>
                                     </table>
