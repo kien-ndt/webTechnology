@@ -96,13 +96,15 @@
                                                 </div>
                                                 <div class="order">
                                                     <input type="submit" value="Cập nhật giỏ hàng" name="apply_cart" class="button">
-                                                    <a  class="button" href="http://localhost/Giaodien/order.php" >Thanh toán</a>    
+                                                    <!-- <a  class="button" href="http://localhost/Giaodien/order.php" >Thanh toán</a>     -->
+                                                    <a  class="button" href="<?php echo BASE_URL."cart/order"?>" >Thanh toán</a>
                                                 </div>                                          
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </form>
+                            <!-- <script>loginclick(); choice(1);</script> -->
                             <!-- Thực hiện tính toán giá trị hóa đơn ở đây -->
                             <div class="cart-collaterals ">                       
                                 <div class="cart_totals">
@@ -122,7 +124,7 @@
                                             </tr>
                                             <tr class="order-total ">
                                                 <th>Tổng thanh toán</th>
-                                                <td><strong>179.000.000 VNĐ</strong> </td>
+                                                <td><strong><?php echo $total?> VNĐ</strong> </td>
                                             </tr>
                                         </tbody>
                                     </table>

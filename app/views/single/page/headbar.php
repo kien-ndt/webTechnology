@@ -38,12 +38,12 @@
                     <img src="<?php echo BASE_URL?>images/cart_image.png">
                     <span>Giỏ hàng</span>
                 </div>
-                <div onclick="goToCart();">
+                <a href="<?php echo BASE_URL?>cart/mycart">
                     <div id="cartShow">
 
                     </div>
 
-                </div>
+                </a>
             </div>            
         </div>
     </div>
@@ -63,8 +63,5 @@
         function hideCart(){            
             let item = document.getElementById("cartShow");
             item.style.display="none";
-        }
-        function goToCart(){
-            window.location.replace("<?php echo BASE_URL?>cart/mycart");
         }
     </script>
