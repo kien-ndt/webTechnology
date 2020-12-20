@@ -127,8 +127,15 @@
     	}
 
     	//Shipping
-    	public function insertShip($table,$data) {
-    		
+    	public function selectShipping($table) {
+    		$sql = "SELECT * FROM $table ORDER BY shipping_id DESC LIMIT 1";
+    		$shipping = mysqli_query($this->conn, $sql);
+    		if(mysqli_num_rows($shipping) > 0) {
+    			$result = mysqli_fetch_assoc($shipping);
+    		} else {
+    			echo '0 results';
+    		}
+    		return $result;
     	}
 	}
 ?>
