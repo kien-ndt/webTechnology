@@ -109,7 +109,8 @@
             if (this.readyState == 4 && this.status == 200) {
                 loginmess.innerHTML = this.responseText;
                 if (this.responseText.includes("thành công")){
-                    window.location.replace("<?php echo BASE_URL?>");
+                    // window.location.replace("<?php echo BASE_URL?>");
+                    window.location.reload();
                 }
             }
         }

@@ -100,4 +100,22 @@
             }
             header("Location:".BASE_URL."cart/mycart");
         }
+
+        public function order(){            
+            $data['countCateProduct'] = $_SESSION['cart']['count'];
+            $data['total'] = $_SESSION['cart']['total'];
+            if (!isset($_SESSION['cart']['list'])){
+                $data['productInCartList']=array();
+                $this->load->view('cart',$data);
+            }
+            else
+            if (!isset($_SESSION['login'])){                
+                $data['productInCartList']=$_SESSION['cart']['list'];
+                $this->load->view('cart',$data);
+                echo "<script>loginclick(); choice(1);</script>";
+            }
+            else {
+                $this->load->view('OrderForm');
+            }
+        }
     }
