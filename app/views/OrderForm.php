@@ -98,7 +98,7 @@
 
                                         <tr class="cart-subtotal">
                                             <th>Tổng Giỏ Hàng</th>
-                                            <td><span class="amount">179.000.000 VNĐ</span>
+                                            <td><span class="amount"><?php echo $total?> VNĐ</span>
                                             </td>
                                         </tr>
                                         

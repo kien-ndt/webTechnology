@@ -42,9 +42,19 @@
                 'order_total' => $_SESSION['cart']['total'],
                 'order_status' => 'shipping'
             );
-            $oderDetails->insertOrders($data);
-
-            // header("Location:".BASE_URL."Order/successOrder");
+            $order_id = $oderDetails->insertOrders($data);
+            
+            if (isset($order_id)){
+                foreach ($_SESSION['cart']['list'] as $id => $arr){
+                    $data = array(
+                        'order_id' => $order_id,
+                        'product_id' => $id,
+                        'product_sales_quantity' => $arr['count']
+                    );   
+                    $oderDetails->insertOrderDetails($data);                 
+                }
+            }
+            header("Location:".BASE_URL."Order/successOrder");
         }
 
     }
