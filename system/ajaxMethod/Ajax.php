@@ -10,6 +10,8 @@
                     "insertProduct",
                     "insertCategory",
                     "deleteProduct",
+                    "loadCategoryList",
+                    "deleteCategory"
                 ),
                 "cart"=>array(
                     "addProductToCart",

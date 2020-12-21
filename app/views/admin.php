@@ -5,7 +5,7 @@
         <?php include_once "single/admin/adminSidebar.php"?>
         <div id="page">
             <div class="admintopbar">
-                <span>Danh sách sản phẩm quản lý</span>
+                <span>Danh sách sản phẩm </span>
                 <a href=<?php echo BASE_URL."admin/addProduct"?>>Thêm sản phẩm</a>
             </div>
             <div class="filterBar">

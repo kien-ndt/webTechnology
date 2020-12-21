@@ -18,6 +18,7 @@
             
             if(Session::get('adminlogin') == true) {
                 //Tra ve trang admin khi da dang nhap
+                
                 header("Location:".BASE_URL."Admin/dashboard");
             }
             $this->load->view('adminLogin');

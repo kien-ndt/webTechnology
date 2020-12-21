@@ -40,7 +40,7 @@
             $data = array(
                 'customer_id' => $_SESSION['userid'],
                 'shipping_id' => $ship_id,
-                'order_total' => $_SESSION['cart']['total'],
+                'order_total' => $_SESSION['cart']['total']+30000,
                 'order_status' => 'shipping'
             );
             $order_id = $oderDetails->insertOrders($data);

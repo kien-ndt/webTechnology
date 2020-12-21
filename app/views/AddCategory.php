@@ -6,6 +6,9 @@
     <div id="container">
         <?php include_once "single/admin/adminSidebar.php"?>
             <div id="page">
+                <div class="admintopbar">
+                    <span>Danh mục sản phẩm</span>
+                </div>
             <div class="adminAddArea">
                 
             <form id="category_product"

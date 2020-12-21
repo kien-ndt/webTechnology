@@ -97,7 +97,7 @@
                                     </tr>
                                     <tr class="order-total">
                                         <th>Tổng thanh toán</th>
-                                        <td><strong><span class="amount"><?php echo $shippingFee.' VNĐ'; ?></span></strong> </td>
+                                        <td><strong><span class="amount"><?php echo $total+$shippingFee.' VNĐ'; ?></span></strong> </td>
                                     </tr>
                                 </tfoot>
                             </table>
