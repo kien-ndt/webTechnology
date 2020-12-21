@@ -30,7 +30,6 @@
                 <td><?php echo $value['product_price']?></td>                
                 <td class="nav">
                     <div>
-                        <button>s</button>
                         <button type="button" onclick="deleteProduct(<?php echo $value['product_id']?>)">x</button>
                     </div>
                 </td>

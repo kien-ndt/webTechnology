@@ -5,15 +5,16 @@
             parent::__construct();
         }
 
-        public function index() {
-        	$this->confirmShipping();
-        }
+        // public function index() {
+        // 	$this->confirmShipping();
+        // }
 
-        public function confirmShipping() {
-        	$this->load->view('shippingForm');
-        }
+        // public function confirmShipping() {
+        // 	$this->load->view('orderForm');
+        // }
 
         public function successOrder() {
+            unset($_SESSION['cart']);
             $this->load->view('successOrder');
         }
 

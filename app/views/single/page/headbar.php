@@ -10,7 +10,7 @@
             <img src="<?php echo PUBLIC_PATH?>img/logo.jpg" class="logo" alt="logo"  onclick="window.location.replace('<?php echo BASE_URL?>');">
             <form method="GET" action="index/homepage/">
                 <div>
-                    <input id="searchInput" type="text" name="search" autocomplete="off" value="Tìm kiếm tên sách">
+                    <input id="searchInput" type="text" name="search" autocomplete="off" placeholder="Tìm kiếm tên sách">
                     <button type="submit"><img src="<?php echo BASE_URL."images/searchButton.png"?>"></button>
                 </div>
                 <div id="searchSuggest">

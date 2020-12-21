@@ -91,6 +91,23 @@
                     return;
                 }
             }
+            if (item.name=='pass'&&item.value.length<6){
+                console.log(item.value.length);
+                mes.innerHTML = "Mật khẩu phải từ 6 kí tự trở lên";
+                return; 
+            }
+            if(item.name=='email'){
+                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                if(!re.test(String(item.value).toLowerCase())){
+                mes.innerHTML = "Email không hợp lệ";
+                return; 
+                };
+            }
+            if (item.name=='phone'&&(item.value.length!=10||item.value[0]!='0')){
+                console.log(item.value.length);
+                mes.innerHTML = "SĐT phải gồm 10 kí tự và bắt đầu bằng 0";
+                return; 
+            }
             data+=(encodeURIComponent(item.name) + '=' + encodeURIComponent(item.value));
             data+="&";
         }
@@ -106,6 +123,7 @@
         let loginmess=document.getElementById("loginmess");
         loginmess.innerHTML="";
         let data="";
+        console.log("aaaaaaa");
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 loginmess.innerHTML = this.responseText;
@@ -121,7 +139,7 @@
                 mes.innerHTML = item.name+" không được bỏ trống";
                 return;
             }
-    
+            
             data+=(encodeURIComponent(item.name) + '=' + encodeURIComponent(item.value));
             data+="&";
         }
