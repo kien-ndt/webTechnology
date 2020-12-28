@@ -85,11 +85,12 @@
 
 			$bookModel = $this->load->model('BookModel');
 
-			$product_name = $_POST['product_name'];
-			$category_id = $_POST['category_id'];
+			$product_name = addslashes($_POST['product_name']);
+			//$product_name = htmlentities($_POST['product_name']);
+			$category_id = addslashes($_POST['category_id']);
 			
-			$product_desc = $_POST['product_desc'];
-			$product_price = $_POST['product_price'];
+			$product_desc = addslashes($_POST['product_desc']);
+			$product_price = addslashes($_POST['product_price']);
 			
 			$data = array(
 				'category_id' => $category_id,
@@ -97,7 +98,14 @@
 				'product_desc' => $product_desc,
 				'product_price' => $product_price
 			);
-
+			$check = true;
+			if (strcmp($product_name, $_POST['product_name'])!=0 || 
+				strcmp($category_id, $_POST['category_id'])!=0 ||
+				strcmp($product_desc, $_POST['product_desc'])!=0 || 
+				strcmp($product_price, $_POST['product_price'])!=0
+			){
+				$check = false;
+			}
 			$target_dir = "images/";
 			$imageName = time() . '-' . $_FILES["profileImage"]["name"];
 			$product_image = $target_dir . basename($imageName);
@@ -109,9 +117,14 @@
 				// echo "loi hinh anh";
 				$data['product_image'] = $target_dir."noImg.png";			
 			}
-			if($bookModel->insert($data)){
-				echo "<div>Đã thêm $product_name<div>";
-			};
+			if ($check){
+
+				if($bookModel->insert($data)){
+					echo "<div>Đã thêm".htmlentities($product_name)."<div>";
+				};
+			}
+			else 
+				echo "<div>Thêm thất bại</div>";
 		}
 
 		public function deleteProduct($param){
@@ -151,16 +164,20 @@
 		}
 
 		public function insertCategory(){						//sau khi sub mit them danh muc
-			$category_name = $_POST['category_name'];
-			$category_desc = $_POST['category_desc'];
+			$category_name = addslashes($_POST['category_name']);
+			$category_desc = addslashes($_POST['category_desc']);
 			$data = array(
 				'category_name' => $category_name,
 				'category_desc' => $category_desc,
 			);
-
+			$comp = true;
+			
+			if (strcmp($category_desc, $_POST['category_desc'])!=0 || strcmp($category_name, $_POST['category_name'])!=0){
+				$comp = false;
+			}
 			$categorymodel = $this->load->model("Category");
 			$res=$categorymodel->findByName($category_name);		//tim xem co category nay hay chua
-			if ($res){
+			if ($res || $comp == false){
 				echo "Tên danh mục đã tồn tại";
 			}
 			else{

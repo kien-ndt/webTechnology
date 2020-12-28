@@ -39,8 +39,8 @@
                 ?>
                     <tr id="category_<?php echo $value['category_id']?>">
                         <td><?php echo $value['category_id']?></td>
-                        <td><?php echo $value['category_name']?></td>
-                        <td><?php echo $value['category_desc']?></td>
+                        <td><?php echo htmlentities($value['category_name'])?></td>
+                        <td><?php echo htmlentities($value['category_desc'])?></td>
                         <td class="nav">
                             <div>
                                 <button type="button" onclick="deleteCategory(<?php echo $value['category_id']?>)">x</button>

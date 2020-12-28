@@ -30,7 +30,7 @@
     <div id="containerhome">
     <main class="content-area">
         <div class="product-area">
-            <div class="product-title"><?php echo $book['product_name']?>
+            <div class="product-title"><?php echo htmlentities($book['product_name'])?>
                 <hr>
             </div>
             <div class="product-info flex-display">
@@ -40,13 +40,13 @@
                         <span><b>Trạng thái:</b> Còn hàng</span> <br> <br>
                         <span><b>Xuất xứ:</b> Việt Nam</span> <br> <br>
                         <span class="price-tag"><b>Giá bán</b></span>
-                        <span class="price"><b><?php echo $book['product_price']." VNĐ"?></b></span>
+                        <span class="price"><b><?php echo htmlentities($book['product_price'])." VNĐ"?></b></span>
                     </div>
                     <div class="product-description">
-                        <div class="product-des-title"><b style="font-size: 20px;"><?php echo $book['product_name'] ?></b></div> <br>
+                        <div class="product-des-title"><b style="font-size: 20px;"><?php echo htmlentities($book['product_name']) ?></b></div> <br>
                         <div class="product-des-detail">
                             <ul>
-                                <li><?php echo $book['product_desc'] ?></li>
+                                <li><?php echo htmlentities($book['product_desc']) ?></li>
                                 
                             </ul>
                         </div>

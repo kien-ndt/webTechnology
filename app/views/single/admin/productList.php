@@ -24,10 +24,10 @@
             <tr id="item_<?php echo $value['product_id']?>">
                 <td><?php echo (int)$key +1?></td>
                 <td><img src="<?php echo BASE_URL.$value['product_image']?>" alt=""></td>
-                <td><?php echo $value['product_name']?></td>
-                <td><?php echo $value['category_name']?></td>
-                <td><?php echo $value['product_desc']?></td>
-                <td><?php echo $value['product_price']?></td>                
+                <td><?php echo htmlentities($value['product_name'])?></td>
+                <td><?php echo htmlentities($value['category_name'])?></td>
+                <td><?php echo htmlentities($value['product_desc'])?></td>
+                <td><?php echo htmlentities($value['product_price'])?></td>                
                 <td class="nav">
                     <div>
                         <button type="button" onclick="deleteProduct(<?php echo $value['product_id']?>)">x</button>
